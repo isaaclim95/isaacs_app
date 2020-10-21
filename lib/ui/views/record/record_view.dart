@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isaacs_app/ui/views/profile/profile_viewmodel.dart';
-import 'package:isaacs_app/ui/views/startup/startup_button.dart';
+import 'package:isaacs_app/ui/views/record/record_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 class RecordView extends StatelessWidget {
@@ -13,7 +12,7 @@ class RecordView extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text("record"),
+            Text(model.title),
 
           ],
         ),

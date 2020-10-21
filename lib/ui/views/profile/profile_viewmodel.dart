@@ -1,6 +1,6 @@
 import 'package:stacked/stacked.dart';
 
-class RecordViewModel extends BaseViewModel {
+class ProfileViewModel extends BaseViewModel {
 
   String _title = "Profile View";
 

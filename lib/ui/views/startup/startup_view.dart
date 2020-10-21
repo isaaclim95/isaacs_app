@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:isaacs_app/ui/views/profile/profile_view.dart';
 import 'package:isaacs_app/ui/views/record/record_view.dart';
-import 'package:isaacs_app/ui/views/startup/startup_button.dart';
+import 'package:isaacs_app/ui/views/startup/startup_buttonview.dart';
 import 'package:isaacs_app/ui/views/startup/startup_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
-// TODO: Implement different views for different StartupButtonView's that are created
 class StartupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,10 +24,10 @@ class StartupView extends StatelessWidget {
                 mainAxisSpacing: 30,
                 crossAxisSpacing: 30,
                 children: [
-                  StartupButtonView(title: 'Profile', navigateToWidget: ProfileView()),
-                  StartupButtonView(title:"Record", navigateToWidget: RecordView()),
-                  StartupButtonView(title:"Stats", navigateToWidget: ProfileView()),
-                  StartupButtonView(title:"Settings", navigateToWidget: ProfileView()),
+                  StartupButtonView("Profile", ProfileView()),
+                  StartupButtonView("Record", RecordView()),
+                  StartupButtonView("Stats", ProfileView()),
+                  StartupButtonView("Settings", ProfileView()),
                 ],
               ),
             )
