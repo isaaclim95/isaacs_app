@@ -3,7 +3,7 @@ import 'package:isaacs_app/ui/views/profile/profile_viewmodel.dart';
 import 'package:isaacs_app/ui/views/startup/startup_button.dart';
 import 'package:stacked/stacked.dart';
 
-class ProfileView extends StatelessWidget {
+class RecordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<RecordViewModel>.reactive(
@@ -13,7 +13,7 @@ class ProfileView extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text("hi"),
+            Text("record"),
 
           ],
         ),

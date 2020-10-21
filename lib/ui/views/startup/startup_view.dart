@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:isaacs_app/ui/views/profile/profile_view.dart';
+import 'package:isaacs_app/ui/views/record/record_view.dart';
 import 'package:isaacs_app/ui/views/startup/startup_button.dart';
 import 'package:isaacs_app/ui/views/startup/startup_viewmodel.dart';
 import 'package:stacked/stacked.dart';
@@ -23,10 +25,10 @@ class StartupView extends StatelessWidget {
                 mainAxisSpacing: 30,
                 crossAxisSpacing: 30,
                 children: [
-                  StartupButtonView(title:"Profile",),
-                  StartupButtonView(title:"Record"),
-                  StartupButtonView(title:"Stats"),
-                  StartupButtonView(title:"Settings"),
+                  StartupButtonView(title: 'Profile', navigateToWidget: ProfileView()),
+                  StartupButtonView(title:"Record", navigateToWidget: RecordView()),
+                  StartupButtonView(title:"Stats", navigateToWidget: ProfileView()),
+                  StartupButtonView(title:"Settings", navigateToWidget: ProfileView()),
                 ],
               ),
             )

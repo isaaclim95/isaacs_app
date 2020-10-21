@@ -4,11 +4,13 @@ import 'package:stacked/stacked.dart';
 
 class StartupButtonView extends StatelessWidget {
 
+  final Widget navigateToWidget;
   // Has to be final
   final String title;
 
   // Constructor that allows us to pass the title in
-  const StartupButtonView ({ Key key, this.title }): super(key: key);
+  StartupButtonView({this.title, this.navigateToWidget});
+  //const StartupButtonView ({ Key key, this.title }): super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +20,10 @@ class StartupButtonView extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18.0),
             ),
-            child: Text(title),
-            onPressed: () {
-              model.navigateToPage();
-            },
+            child: Text(model.title),
+            onPressed: model.navigateToPage,
           ),
         ),
-        viewModelBuilder: () => StartupButtonViewModel());
+        viewModelBuilder: () => StartupButtonViewModel(title:title, navigateToWidget: navigateToWidget));
   }
 }
