@@ -19,7 +19,8 @@ class StartupView extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(20.0),
               child: GridView.count(
-                shrinkWrap: true,
+                shrinkWrap: true,       // Allow it to sit in a column without giving an error
+                primary: false,         // Non-scrollable
                 crossAxisCount: 2,
                 mainAxisSpacing: 30,
                 crossAxisSpacing: 30,
