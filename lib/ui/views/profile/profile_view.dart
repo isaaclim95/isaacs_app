@@ -12,7 +12,7 @@ class ProfileView extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text(model.title),
+            Text(""),
           ],
         ),
       ),
