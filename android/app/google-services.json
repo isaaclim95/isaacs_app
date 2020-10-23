@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "4529639531",
+    "firebase_url": "https://isaacs-app.firebaseio.com",
+    "project_id": "isaacs-app",
+    "storage_bucket": "isaacs-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:4529639531:android:a98b7c3062068e1837212e",
+        "android_client_info": {
+          "package_name": "com.example.isaacs_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "4529639531-8la9g80mvsap19iu46s1od0cs78t5i88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPOmOCqlE6f0AJ-kd7y1YmFq0WYEo_F-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "4529639531-8la9g80mvsap19iu46s1od0cs78t5i88.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "4529639531-7vevikhhqcbsfscls2rr7pdrndj6tbp7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.isaacsApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

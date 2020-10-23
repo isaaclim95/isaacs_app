@@ -18,7 +18,7 @@ class ProfileView extends StatelessWidget {
               print(user);
               return Card(
                 child: Text(
-                  user.name
+                  "Isaac"
                 ),
               );
             })

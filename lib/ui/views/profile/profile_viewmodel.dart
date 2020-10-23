@@ -19,9 +19,12 @@ class ProfileViewModel extends StreamViewModel<List<UserModel>> {
 
   Stream<List<UserModel>> get getUserList {
     print("getUserList");
-    return userCollection.snapshots().map((snapshot) => snapshot.docs
-        .map((docSnapshot) => UserModel.fromJson(docSnapshot.data()))
-        .toList());
+    return userCollection.get().asStream().map((snapshot) => snapshot.docs
+            .map((docSnapshot) => UserModel.fromJson(docSnapshot.data()))
+            .toList());
+    // snapshots().map((snapshot) => snapshot.docs
+    //     .map((docSnapshot) => UserModel.fromJson(docSnapshot.data()))
+    //     .toList());
   }
 
   String _title = "Profile View";
