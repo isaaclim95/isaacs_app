@@ -16,9 +16,10 @@ class ProfileView extends StatelessWidget {
             itemBuilder: (context, index) {
               var user = model.users[index];
               print(user);
-              return Card(
-                child: Text(
-                  "Isaac"
+              return ListTile(
+                title: Text(
+                  user.name + " " + user.age.toString() + " " + user.weight.toString()
+                      + " " + user.height.toString()
                 ),
               );
             })
