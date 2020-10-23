@@ -15,7 +15,6 @@ class ProfileView extends StatelessWidget {
             itemCount: model.users.length,
             itemBuilder: (context, index) {
               var user = model.users[index];
-              print(user);
               return ListTile(
                 title: Text(
                   user.name + " " + user.age.toString() + " " + user.weight.toString()

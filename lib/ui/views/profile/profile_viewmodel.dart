@@ -7,15 +7,6 @@ class ProfileViewModel extends StreamViewModel<List<UserModel>> {
   final CollectionReference userCollection =
   FirebaseFirestore.instance.collection("users");
 
-  Future getDocs() async {
-    QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection("users").get();
-    print(querySnapshot.docs.length);
-    for (int i = 0; i < querySnapshot.docs.length; i++) {
-      var a = querySnapshot.docs[i];
-      print(a.id);
-    }
-  }
-
 
   Stream<List<UserModel>> get getUserList {
     print("getUserList");
