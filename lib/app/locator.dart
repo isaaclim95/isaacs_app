@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:isaacs_app/services/auth.dart';
+import 'package:isaacs_app/services/epoch_service.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 /// file: locator.dart
@@ -11,4 +13,7 @@ final locator = GetIt.instance;
 /// Registers each service that is placed in here
 Future setupLocator() async {
   locator.registerLazySingleton(() => NavigationService());
+  locator.registerLazySingleton(() => EpochService());
+  locator.registerLazySingleton(() => AuthService());
 }
+

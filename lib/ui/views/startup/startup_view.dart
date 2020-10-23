@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:isaacs_app/ui/streamcounter/streamcounter_view.dart';
 import 'package:isaacs_app/ui/views/profile/profile_view.dart';
 import 'package:isaacs_app/ui/views/record/record_view.dart';
 import 'package:isaacs_app/ui/views/startup/startup_buttonview.dart';
@@ -27,7 +28,7 @@ class StartupView extends StatelessWidget {
                 children: [
                   StartupButtonView("Profile", ProfileView()),
                   StartupButtonView("Record", RecordView()),
-                  StartupButtonView("Stats", ProfileView()),
+                  StartupButtonView("Streams", StreamCounterView()),
                   StartupButtonView("Settings", ProfileView()),
                 ],
               ),

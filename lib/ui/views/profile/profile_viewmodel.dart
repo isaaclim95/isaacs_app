@@ -2,26 +2,34 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:isaacs_app/ui/models/user_model.dart';
 import 'package:stacked/stacked.dart';
 
-class ProfileViewModel extends BaseViewModel {
+class ProfileViewModel extends StreamViewModel<List<UserModel>> {
 
-  ProfileViewModel()  {
-    getUserList();
+  final CollectionReference userCollection =
+  FirebaseFirestore.instance.collection("users");
+
+  Future getDocs() async {
+    QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection("users").get();
+    print(querySnapshot.docs.length);
+    for (int i = 0; i < querySnapshot.docs.length; i++) {
+      var a = querySnapshot.docs[i];
+      print(a.id);
+    }
   }
 
-  FirebaseFirestore _fireStoreDataBase = FirebaseFirestore.instance;
 
-  Stream<List<UserModel>> getUserList() {
-    var lst = _fireStoreDataBase.collection('user')
-        .snapshots()
-        .map((snapShot) => snapShot.docs
-        .map((document) => UserModel.fromJson(document.data()))
+  Stream<List<UserModel>> get getUserList {
+    print("getUserList");
+    return userCollection.snapshots().map((snapshot) => snapshot.docs
+        .map((docSnapshot) => UserModel.fromJson(docSnapshot.data()))
         .toList());
-    print(lst);
-    return lst;
   }
 
   String _title = "Profile View";
-
   String get title => '$_title';
+
+  List<UserModel> get users => data;
+
+  @override
+  Stream<List<UserModel>> get stream => getUserList;
 
 }

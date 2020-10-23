@@ -10,14 +10,20 @@ class ProfileView extends StatelessWidget {
         appBar: AppBar(
           title: Text(model.title),
         ),
-        body: Column(
-          children: [
-            Text(""),
-          ],
-        ),
-      ),
+        body: model.dataReady
+            ? ListView.builder(
+            itemCount: model.users.length,
+            itemBuilder: (context, index) {
+              var user = model.users[index];
+              print(user);
+              return Card(
+                child: Text(
+                  user.name
+                ),
+              );
+            })
+            : Center(child: CircularProgressIndicator())),
       viewModelBuilder: () => ProfileViewModel(),
-
     );
   }
 
