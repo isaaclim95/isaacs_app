@@ -3,9 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AuthService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  bool get isSignedIn {
-    return _auth.currentUser != null;
+  Future<bool> isSignedIn() async {
+    var user = _auth.currentUser;
+    return user != null;
   }
+
 
   String get uid {
     print(isSignedIn.toString());
