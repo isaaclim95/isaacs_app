@@ -8,28 +8,22 @@ class StartupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<StartupViewModel>.reactive(
-      onModelReady: (model) => model.handleStartUpLogic(),
-      fireOnModelReadyOnce: true,
-      builder: (context, model, child) => !model.isLoading
-        ? model.isSignedIn
-          ? HomeView()
-          : LoginView()
-        : Scaffold(
-          body: Container(
-            constraints: BoxConstraints.expand(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text("Loading..."),
-                SizedBox(height: 10),
-                CircularProgressIndicator(),
-              ],
-            ),
-          )
-      ),
-
       viewModelBuilder: () => StartupViewModel(),
+      onModelReady: (model) => model.handleStartUpLogic(),
+      builder: (context, model, child) => Scaffold(
+        body: Container(
+          constraints: BoxConstraints.expand(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("Loading..."),
+              SizedBox(height: 10),
+              CircularProgressIndicator(),
+            ],
+          ),
+        )
+      ),
 
     );
   }

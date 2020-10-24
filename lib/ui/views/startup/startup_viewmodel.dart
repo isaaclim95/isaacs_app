@@ -5,7 +5,7 @@ import 'package:isaacs_app/ui/views/home/home_view.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-class StartupViewModel extends StreamViewModel<bool> {
+class StartupViewModel extends BaseViewModel {
 
   final AuthService _authService = locator<AuthService>();
   final NavigationService _navigationService = locator<NavigationService>();
@@ -17,6 +17,7 @@ class StartupViewModel extends StreamViewModel<bool> {
 
 
   Future handleStartUpLogic() async {
+    print("finished startupLogic");
     var isSignedIn = await _authService.isSignedIn();
     if(isSignedIn)  {
       isSignedIn = true;
@@ -28,11 +29,6 @@ class StartupViewModel extends StreamViewModel<bool> {
     notifyListeners();
     print("finished startupLogic");
   }
-
-  @override
-  // TODO: implement stream
-  Stream<bool> get stream => throw UnimplementedError();
-
 
 
 }

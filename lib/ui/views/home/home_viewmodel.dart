@@ -5,16 +5,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 class HomeViewModel extends BaseViewModel {
 
-  final NavigationService _navigationService = locator<NavigationService>();
-
-  String _title = "Startup View";
-
+  String _title = "Home View";
   String get title => '$_title';
 
-  void navigateToPage() {
-    _navigationService.navigateToView(ProfileView());
-
-
-
-  }
 }
