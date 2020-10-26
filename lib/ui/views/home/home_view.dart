@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:isaacs_app/ui/streamcounter/streamcounter_view.dart';
 import 'package:isaacs_app/ui/views/profile/profile_view.dart';
 import 'package:isaacs_app/ui/views/record/record_view.dart';
+import 'package:isaacs_app/ui/views/settings/settings_view.dart';
 import 'package:isaacs_app/ui/views/startup/startup_buttonview.dart';
 import 'package:stacked/stacked.dart';
 import 'home_viewmodel.dart';
@@ -29,7 +30,7 @@ class HomeView extends StatelessWidget {
                   StartupButtonView("Profile", ProfileView()),
                   StartupButtonView("Record", RecordView()),
                   StartupButtonView("Streams", StreamCounterView()),
-                  StartupButtonView("Settings", ProfileView()),
+                  StartupButtonView("Settings", SettingsView()),
                 ],
               ),
             )

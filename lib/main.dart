@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:isaacs_app/ui/views/authentication/login_view.dart';
+import 'package:isaacs_app/ui/views/home/home_view.dart';
+import 'package:isaacs_app/ui/views/profile/profile_view.dart';
 import 'package:isaacs_app/ui/views/startup/startup_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'app/locator.dart';
@@ -58,9 +61,24 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+
+      // Our home view (a Widget).
       home: StartupView(),
-      // Allows us to use contextless navigation
+
+      // Allows us to use context-less navigation
       navigatorKey: locator<NavigationService>().navigatorKey,
+      onGenerateRoute: (routeSettings) {
+        switch (routeSettings.name) {
+          case 'home':
+            return MaterialPageRoute(builder: (context) => HomeView());
+          case 'login':
+            return MaterialPageRoute(builder: (context) => LoginView());
+          case 'profile':
+            return MaterialPageRoute(builder: (context) => ProfileView());
+          default:
+            return MaterialPageRoute(builder: (context) => HomeView());
+        }
+      },
     );
   }
 

@@ -8,35 +8,29 @@ class AuthService {
     return user != null;
   }
 
+  String get uid => _auth.currentUser.uid;
 
-  String get uid {
-    print(isSignedIn.toString());
-    print("Trying to get currentUser");
-    print(_auth.currentUser);
-    print("successfully got currentUser");
-    print("Trying to get uid");
-    print(_auth.currentUser.uid);
-    print("successfully got uid");
-    return _auth.currentUser.uid;
-  }
-
-
-  Future signOut() async {
+  Future<bool> signOut() async {
     try {
-      dynamic result = _auth.signOut();
-
-      return result;
+      await _auth.signOut();
+      print("Signed out.");
+      return true;
     } catch (e) {
-      print(e.toString());
-      return e.message;
+      print("Failed to sign out.");
+      print(e);
+      return false;
     }
   }
 
-  Future signIn() async {
+  Future<bool> signIn(email, password) async {
     try {
-      _auth.signInWithEmailAndPassword(email: "isaaclim95@gmail.com", password: "password123");
+      await _auth.signInWithEmailAndPassword(email:email, password: password);
+      print("Signed in.");
+      return true;
     } catch (e) {
+      print("Failed to sign in.");
       print(e);
+      return false;
     }
   }
 }

@@ -21,9 +21,9 @@ class StartupViewModel extends BaseViewModel {
     var isSignedIn = await _authService.isSignedIn();
     if(isSignedIn)  {
       isSignedIn = true;
-      _navigationService.navigateToView(HomeView());
+      _navigationService.replaceWith('home');
     } else  {
-      _navigationService.navigateToView(LoginView());
+      _navigationService.replaceWith('login');
     }
     isLoading = false;
     notifyListeners();
