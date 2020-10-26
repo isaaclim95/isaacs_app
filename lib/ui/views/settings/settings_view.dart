@@ -8,20 +8,21 @@ class SettingsView extends StatelessWidget {
     return ViewModelBuilder<SettingsViewModel>.reactive(
       viewModelBuilder: () => SettingsViewModel(),
       builder: (context, model, child) => Scaffold(
-          body: Container(
-            constraints: BoxConstraints.expand(),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                RaisedButton(
-                  child: Text("Sign out"),
-                  onPressed: () => model.signOut(),
+        appBar: AppBar(),
+        body: Container(
+          constraints: BoxConstraints.expand(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              RaisedButton(
+                child: Text("Sign out"),
+                onPressed: () => model.signOut(),
 
-                ),
-              ],
-            ),
-          )
+              ),
+            ],
+          ),
+        )
       ),
 
     );

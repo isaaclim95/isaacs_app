@@ -27,9 +27,9 @@ class StartupButtonViewModel extends BaseViewModel {
   // Call this function from the StartupButtonView
   // We set the return type to "Future" because navigateToView returns a value of "Dynamic"
   // in the "Future".
-  Future navigateToPage() {
+  Future<void> navigateToPage() async{
 
-    return _navigationService.navigateToView(navigateToWidget);
+    _navigationService.navigateToView(navigateToWidget);
 
   }
 
