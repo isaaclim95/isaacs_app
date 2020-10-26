@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isaacs_app/ui/views/authentication/login_view.dart';
-import 'package:isaacs_app/ui/views/home/home_view.dart';
 import 'package:isaacs_app/ui/views/settings/settings_viewmodel.dart';
-import 'package:isaacs_app/ui/views/startup/startup_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 class SettingsView extends StatelessWidget {
