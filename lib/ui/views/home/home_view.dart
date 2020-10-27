@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:isaacs_app/app/router.gr.dart';
 import 'package:isaacs_app/ui/streamcounter/streamcounter_view.dart';
 import 'package:isaacs_app/ui/views/profile/profile_view.dart';
 import 'package:isaacs_app/ui/views/record/record_view.dart';
@@ -27,10 +28,12 @@ class HomeView extends StatelessWidget {
                 mainAxisSpacing: 30,
                 crossAxisSpacing: 30,
                 children: [
-                  StartupButtonView("Profile", ProfileView()),
-                  StartupButtonView("Record", RecordView()),
-                  StartupButtonView("Streams", StreamCounterView()),
-                  StartupButtonView("Settings", SettingsView()),
+                  // Grid of 4 StartupButtonView's. We pass in the title of the Page
+                  // and the route
+                  StartupButtonView('Profile', Routes.profileViewRoute),
+                  StartupButtonView('Record', Routes.recordViewRoute),
+                  StartupButtonView('Stream Counter', Routes.streamCounterViewRoute),
+                  StartupButtonView('Settings', Routes.settingsViewRoute),
                 ],
               ),
             )

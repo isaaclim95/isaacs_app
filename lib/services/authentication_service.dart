@@ -1,9 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
   static final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<bool> isSignedIn() async {
+  final CollectionReference userCollection =
+  FirebaseFirestore.instance.collection("users");
+
+  bool isSignedIn() {
     var user = _auth.currentUser;
     return user != null;
   }
@@ -32,5 +36,9 @@ class AuthService {
       print(e);
       return false;
     }
+  }
+
+  Future<void> updateStatus(isOnline) async {
+    userCollection.doc(uid).update({"isOnline":"true"});
   }
 }

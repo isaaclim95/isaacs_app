@@ -12,7 +12,7 @@ class StreamCounterView extends StatelessWidget {
           title: Text(model.title),
         ),
         body: Center(
-          child: Text(model.title),
+          child: Text(model.timeData),
         ),
       ),
       viewModelBuilder: () => StreamCounterViewModel(),

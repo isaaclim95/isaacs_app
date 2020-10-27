@@ -15,9 +15,7 @@ class StartupView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Loading..."),
-              SizedBox(height: 10),
-              CircularProgressIndicator(),
+              Text("Isaacs App"),
             ],
           ),
         )

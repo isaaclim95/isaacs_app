@@ -5,7 +5,8 @@ import 'package:stacked/stacked.dart';
 // ViewModel
 class StreamCounterViewModel extends StreamViewModel<int> {
 
-  String get title => 'This is the time since epoch in seconds \n $data';
+  String get title => 'StreamCounterView';
+  String get timeData => 'This is the time since epoch in seconds \n $data';
 
   @override
   Stream<int> get stream => locator<EpochService>().epochUpdatesNumbers();

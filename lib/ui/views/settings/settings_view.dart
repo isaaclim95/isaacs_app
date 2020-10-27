@@ -18,7 +18,6 @@ class SettingsView extends StatelessWidget {
               RaisedButton(
                 child: Text("Sign out"),
                 onPressed: () => model.signOut(),
-
               ),
             ],
           ),

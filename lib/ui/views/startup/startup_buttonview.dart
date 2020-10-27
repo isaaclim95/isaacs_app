@@ -12,9 +12,8 @@ class StartupButtonView extends StatelessWidget {
   /// Local final variables which allow us to build and return our Widget ///
 
   // The page(Widget) we want to navigate to
-  final Widget navigateToWidget;
+  final String routeName;
 
-  // Final because we don't want it to change after it's been instantiated after runtime
   final String title;
 
   // Constructor that allows us to pass the title in
@@ -23,7 +22,7 @@ class StartupButtonView extends StatelessWidget {
   // get an error
 
   // Constructor where we pass in title and Widget we want to navigate to
-  StartupButtonView(this.title, this.navigateToWidget);
+  StartupButtonView(this.title, this.routeName);
 
   @override
   Widget build(BuildContext context) {
@@ -42,12 +41,12 @@ class StartupButtonView extends StatelessWidget {
 
             // Here we declare what the button will do when it is pressed.
             // In this case, we call the StartupButtonViewModel function, navigateToPage.
-            onPressed: model.navigateToPage,
+            onPressed: model.navigateTo,
           ),
         ),
 
         // This is the model that the UI will be "built from"
         // We pass in the title and Widget we want to navigate to.
-        viewModelBuilder: () => StartupButtonViewModel(title, navigateToWidget));
+        viewModelBuilder: () => StartupButtonViewModel(title, routeName));
   }
 }

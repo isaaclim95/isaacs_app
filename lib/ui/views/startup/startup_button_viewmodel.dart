@@ -14,22 +14,24 @@ class StartupButtonViewModel extends BaseViewModel {
   final NavigationService _navigationService = locator<NavigationService>();
 
   // The page(Widget) we want to navigate to
-  final Widget navigateToWidget;
+  final String _routeName;
 
-  // Final because we don't want it to change after it's been instantiated after runtime
-  final String title;
+
+  String _title;
+
+  String get title => _title;
 
   // Constructor that allows us to pass the title in
-  StartupButtonViewModel(this.title, this.navigateToWidget);
+  StartupButtonViewModel(this._title, this._routeName)  {
+    _title = this._title;
+  }
 
   // navigateToPage() just calls navigateToView using our page (Widget) we want to
   // navigate to.
   // Call this function from the StartupButtonView
-  // We set the return type to "Future" because navigateToView returns a value of "Dynamic"
-  // in the "Future".
-  Future<void> navigateToPage() async{
+  Future<void> navigateTo() async{
 
-    _navigationService.navigateToView(navigateToWidget);
+    await _navigationService.navigateTo(_routeName);
 
   }
 

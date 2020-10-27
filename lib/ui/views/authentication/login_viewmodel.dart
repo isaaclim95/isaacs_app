@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:isaacs_app/app/locator.dart';
+import 'package:isaacs_app/app/router.gr.dart';
 import 'package:isaacs_app/services/authentication_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -29,8 +30,9 @@ class LoginViewModel extends BaseViewModel {
 
   Future<void> login() async  {
     if(await _authService.signIn(_emailController.text, _passwordController.text)) {
-      _navigationService.replaceWith('home');
+      await _navigationService.replaceWith(Routes.homeViewRoute);
     } else  {
+      // TODO: Put toast here
       print("Failed to login.");
     }
   }
