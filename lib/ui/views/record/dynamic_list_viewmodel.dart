@@ -1,3 +1,13 @@
+import 'package:flutter/cupertino.dart';
+import 'package:stacked/stacked.dart';
+
+class DynamicListViewModel extends BaseViewModel {
+
+  /// Constructor
+  DynamicListViewModel() {
+
+    // Adds the initial tile into the page
+    addTile();
 
   }
 
