@@ -3,11 +3,11 @@ import 'package:isaacs_app/ui/streamcounter/streamcounter_view.dart';
 import 'package:isaacs_app/ui/views/authentication/login_view.dart';
 import 'package:isaacs_app/ui/views/home/home_view.dart';
 import 'package:isaacs_app/ui/views/profile/profile_view.dart';
-import 'package:isaacs_app/ui/views/record/record_view.dart';
+import 'package:isaacs_app/ui/views/record/dynamic_list_view.dart';
 import 'package:isaacs_app/ui/views/settings/settings_view.dart';
 import 'package:isaacs_app/ui/views/startup/startup_view.dart';
 
-/// Declare AutoRoutes, then run build_runner generator on them (flutter packages pub run build_runner watch).
+/// Declare AutoRoutes, then run build_runner generator on them (flutter packages pub run build_runner watch --delete-conflicting-outputs).
 ///
 /// Allows us to navigate to our declared routes throughout our program
 ///
@@ -19,7 +19,7 @@ import 'package:isaacs_app/ui/views/startup/startup_view.dart';
     MaterialRoute(page: HomeView, name: 'homeViewRoute'),
     MaterialRoute(page: SettingsView, name: 'settingsViewRoute'),
     MaterialRoute(page: ProfileView, name: 'profileViewRoute'),
-    MaterialRoute(page: RecordView, name: 'recordViewRoute'),
+    MaterialRoute(page: DynamicListView, name: 'dynamicListViewRoute'),
     MaterialRoute(page: LoginView, name: 'loginViewRoute'),
     MaterialRoute(page: StreamCounterView, name: 'streamCounterViewRoute'),
     MaterialRoute(path: "*", page: StreamCounterView, name: 'unknownViewRoute')

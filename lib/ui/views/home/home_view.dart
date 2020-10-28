@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:isaacs_app/app/router.gr.dart';
 import 'package:isaacs_app/ui/streamcounter/streamcounter_view.dart';
 import 'package:isaacs_app/ui/views/profile/profile_view.dart';
-import 'package:isaacs_app/ui/views/record/record_view.dart';
+import 'package:isaacs_app/ui/views/record/dynamic_list_view.dart';
 import 'package:isaacs_app/ui/views/settings/settings_view.dart';
 import 'package:isaacs_app/ui/views/startup/startup_buttonview.dart';
 import 'package:stacked/stacked.dart';
@@ -13,6 +13,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<HomeViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           title: Text(model.title),
         ),
@@ -31,7 +32,7 @@ class HomeView extends StatelessWidget {
                   // Grid of 4 StartupButtonView's. We pass in the title of the Page
                   // and the route
                   StartupButtonView('Profile', Routes.profileViewRoute),
-                  StartupButtonView('Record', Routes.recordViewRoute),
+                  StartupButtonView('Dynamic List', Routes.dynamicListViewRoute),
                   StartupButtonView('Stream Counter', Routes.streamCounterViewRoute),
                   StartupButtonView('Settings', Routes.settingsViewRoute),
                 ],

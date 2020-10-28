@@ -20,6 +20,8 @@ dependencies:
   cloud_firestore:
   firebase_auth:
 
+  fluttertoast:
+
   stacked:
   get_it:
   injectable:

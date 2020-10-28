@@ -13,7 +13,7 @@ import '../ui/streamcounter/streamcounter_view.dart';
 import '../ui/views/authentication/login_view.dart';
 import '../ui/views/home/home_view.dart';
 import '../ui/views/profile/profile_view.dart';
-import '../ui/views/record/record_view.dart';
+import '../ui/views/record/dynamic_list_view.dart';
 import '../ui/views/settings/settings_view.dart';
 import '../ui/views/startup/startup_view.dart';
 
@@ -22,7 +22,7 @@ class Routes {
   static const String homeViewRoute = '/home-view';
   static const String settingsViewRoute = '/settings-view';
   static const String profileViewRoute = '/profile-view';
-  static const String recordViewRoute = '/record-view';
+  static const String dynamicListViewRoute = '/dynamic-list-view';
   static const String loginViewRoute = '/login-view';
   static const String streamCounterViewRoute = '/stream-counter-view';
   static const String unknownViewRoute = '*';
@@ -31,7 +31,7 @@ class Routes {
     homeViewRoute,
     settingsViewRoute,
     profileViewRoute,
-    recordViewRoute,
+    dynamicListViewRoute,
     loginViewRoute,
     streamCounterViewRoute,
     unknownViewRoute,
@@ -46,7 +46,7 @@ class Router extends RouterBase {
     RouteDef(Routes.homeViewRoute, page: HomeView),
     RouteDef(Routes.settingsViewRoute, page: SettingsView),
     RouteDef(Routes.profileViewRoute, page: ProfileView),
-    RouteDef(Routes.recordViewRoute, page: RecordView),
+    RouteDef(Routes.dynamicListViewRoute, page: DynamicListView),
     RouteDef(Routes.loginViewRoute, page: LoginView),
     RouteDef(Routes.streamCounterViewRoute, page: StreamCounterView),
     RouteDef(Routes.unknownViewRoute, page: StreamCounterView),
@@ -78,9 +78,9 @@ class Router extends RouterBase {
         settings: data,
       );
     },
-    RecordView: (data) {
+    DynamicListView: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => RecordView(),
+        builder: (context) => DynamicListView(),
         settings: data,
       );
     },
