@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:isaacs_app/app/router.gr.dart';
-import 'package:isaacs_app/ui/streamcounter/streamcounter_view.dart';
-import 'package:isaacs_app/ui/views/profile/profile_view.dart';
-import 'package:isaacs_app/ui/views/record/dynamic_list_view.dart';
-import 'package:isaacs_app/ui/views/settings/settings_view.dart';
-import 'package:isaacs_app/ui/views/startup/startup_buttonview.dart';
+import 'package:isaacs_app/ui/widgets/startup_buttonview.dart';
 import 'package:stacked/stacked.dart';
-import 'home_viewmodel.dart';
+import '../../models/home_viewmodel.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -31,9 +27,9 @@ class HomeView extends StatelessWidget {
                 children: [
                   // Grid of 4 StartupButtonView's. We pass in the title of the Page
                   // and the route
+                  StartupButtonView('Activities', Routes.activitiesViewRoute),
                   StartupButtonView('Profile', Routes.profileViewRoute),
                   StartupButtonView('Dynamic List', Routes.dynamicListViewRoute),
-                  StartupButtonView('Stream Counter', Routes.streamCounterViewRoute),
                   StartupButtonView('Settings', Routes.settingsViewRoute),
                 ],
               ),

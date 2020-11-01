@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:isaacs_app/app/locator.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -15,7 +14,6 @@ class StartupButtonViewModel extends BaseViewModel {
 
   // The page(Widget) we want to navigate to
   final String _routeName;
-
 
   String _title;
 

@@ -9,7 +9,6 @@ import 'package:injectable/injectable.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../services/authentication_service.dart';
-import '../services/epoch_service.dart';
 import '../services/third_party_services_module.dart';
 
 /// adds generated dependencies
@@ -23,7 +22,6 @@ GetIt $initGetIt(
   final gh = GetItHelper(get, environment, environmentFilter);
   final thirdPartyServicsModule = _$ThirdPartyServicsModule();
   gh.lazySingleton<AuthService>(() => thirdPartyServicsModule.authService);
-  gh.lazySingleton<EpochService>(() => thirdPartyServicsModule.epochService);
   gh.lazySingleton<NavigationService>(
       () => thirdPartyServicsModule.navigationService);
   return get;
@@ -32,8 +30,6 @@ GetIt $initGetIt(
 class _$ThirdPartyServicsModule extends ThirdPartyServicsModule {
   @override
   AuthService get authService => AuthService();
-  @override
-  EpochService get epochService => EpochService();
   @override
   NavigationService get navigationService => NavigationService();
 }

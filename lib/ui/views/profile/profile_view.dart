@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isaacs_app/ui/views/profile/profile_viewmodel.dart';
+import 'package:isaacs_app/ui/models/profile_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 class ProfileView extends StatelessWidget {

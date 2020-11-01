@@ -9,11 +9,11 @@ class LoginViewModel extends BaseViewModel {
 
   LoginViewModel() {
     setupTextControllers();
+    _navigationService.config(defaultTransition: NavigationTransition.Fade, defaultDurationTransition: Duration(seconds: 1));
   }
 
   final AuthService _authService = locator<AuthService>();
   final NavigationService _navigationService = locator<NavigationService>();
-
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 

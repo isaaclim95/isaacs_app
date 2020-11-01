@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isaacs_app/ui/views/startup/startup_button_viewmodel.dart';
+import 'package:isaacs_app/ui/models/startup_button_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 /// StartupButtonView builds and provides the UI for a Button that

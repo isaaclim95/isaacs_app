@@ -9,7 +9,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../ui/streamcounter/streamcounter_view.dart';
+import '../ui/views/activities/activities_view.dart';
 import '../ui/views/authentication/login_view.dart';
 import '../ui/views/home/home_view.dart';
 import '../ui/views/profile/profile_view.dart';
@@ -20,20 +20,20 @@ import '../ui/views/startup/startup_view.dart';
 class Routes {
   static const String startupViewRoute = '/';
   static const String homeViewRoute = '/home-view';
+  static const String activitiesViewRoute = '/activities-view';
   static const String settingsViewRoute = '/settings-view';
   static const String profileViewRoute = '/profile-view';
   static const String dynamicListViewRoute = '/dynamic-list-view';
   static const String loginViewRoute = '/login-view';
-  static const String streamCounterViewRoute = '/stream-counter-view';
   static const String unknownViewRoute = '*';
   static const all = <String>{
     startupViewRoute,
     homeViewRoute,
+    activitiesViewRoute,
     settingsViewRoute,
     profileViewRoute,
     dynamicListViewRoute,
     loginViewRoute,
-    streamCounterViewRoute,
     unknownViewRoute,
   };
 }
@@ -44,12 +44,12 @@ class Router extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.startupViewRoute, page: StartupView),
     RouteDef(Routes.homeViewRoute, page: HomeView),
+    RouteDef(Routes.activitiesViewRoute, page: ActivitiesView),
     RouteDef(Routes.settingsViewRoute, page: SettingsView),
     RouteDef(Routes.profileViewRoute, page: ProfileView),
     RouteDef(Routes.dynamicListViewRoute, page: DynamicListView),
     RouteDef(Routes.loginViewRoute, page: LoginView),
-    RouteDef(Routes.streamCounterViewRoute, page: StreamCounterView),
-    RouteDef(Routes.unknownViewRoute, page: StreamCounterView),
+    RouteDef(Routes.unknownViewRoute, page: HomeView),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -63,6 +63,12 @@ class Router extends RouterBase {
     HomeView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => HomeView(),
+        settings: data,
+      );
+    },
+    ActivitiesView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => ActivitiesView(),
         settings: data,
       );
     },
@@ -87,12 +93,6 @@ class Router extends RouterBase {
     LoginView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => LoginView(),
-        settings: data,
-      );
-    },
-    StreamCounterView: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => StreamCounterView(),
         settings: data,
       );
     },

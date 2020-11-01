@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:isaacs_app/ui/views/record/dynamic_list_viewmodel.dart';
+import 'package:isaacs_app/ui/models/dynamic_list_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 class DynamicListView extends StatelessWidget {

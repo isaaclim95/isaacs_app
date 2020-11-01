@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:isaacs_app/ui/views/settings/settings_viewmodel.dart';
+import 'package:isaacs_app/ui/models/settings_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 class SettingsView extends StatelessWidget {

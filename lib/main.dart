@@ -1,7 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:isaacs_app/services/authentication_service.dart';
-import 'package:isaacs_app/ui/views/startup/startup_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'app/locator.dart';
 import 'app/router.gr.dart';
@@ -22,8 +20,6 @@ class MyApp extends StatefulWidget  {
 }
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
-
-  final AuthService _authService = locator<AuthService>();
 
   String uid;
   bool isOnline;
