@@ -20,14 +20,14 @@ GetIt $initGetIt(
   EnvironmentFilter environmentFilter,
 }) {
   final gh = GetItHelper(get, environment, environmentFilter);
-  final thirdPartyServicsModule = _$ThirdPartyServicsModule();
-  gh.lazySingleton<AuthService>(() => thirdPartyServicsModule.authService);
+  final thirdPartyServicesModule = _$ThirdPartyServicesModule();
+  gh.lazySingleton<AuthService>(() => thirdPartyServicesModule.authService);
   gh.lazySingleton<NavigationService>(
-      () => thirdPartyServicsModule.navigationService);
+      () => thirdPartyServicesModule.navigationService);
   return get;
 }
 
-class _$ThirdPartyServicsModule extends ThirdPartyServicsModule {
+class _$ThirdPartyServicesModule extends ThirdPartyServicesModule {
   @override
   AuthService get authService => AuthService();
   @override

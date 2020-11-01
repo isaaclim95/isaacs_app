@@ -4,7 +4,7 @@ import 'package:stacked_services/stacked_services.dart';
 import 'authentication_service.dart';
 
 @module
-abstract class ThirdPartyServicsModule  {
+abstract class ThirdPartyServicesModule  {
   @lazySingleton
   NavigationService get navigationService;
 

@@ -29,7 +29,6 @@ class HomeView extends StatelessWidget {
                   // and the route
                   StartupButtonView('Activities', Routes.activitiesViewRoute),
                   StartupButtonView('Profile', Routes.profileViewRoute),
-                  StartupButtonView('Dynamic List', Routes.dynamicListViewRoute),
                   StartupButtonView('Settings', Routes.settingsViewRoute),
                 ],
               ),

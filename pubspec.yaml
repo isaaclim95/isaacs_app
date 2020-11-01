@@ -16,8 +16,8 @@ dependencies:
 
   ## Third party dependencies
   cupertino_icons: ^1.0.0
-  firebase_core:
-  cloud_firestore:
+  firebase_core: ^0.5.1
+  cloud_firestore: ^0.14.2
   firebase_auth:
 
   fluttertoast:
@@ -28,6 +28,7 @@ dependencies:
   auto_route:
   stacked_services:
   flutter_platform_widgets:
+  share: ^0.6.5+4
 
 dev_dependencies:
   flutter_test:
