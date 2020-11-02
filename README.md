@@ -5,5 +5,6 @@ Adapts to platform using PlatformWidgets and conditional statements: (https://pu
 
 Architecture:  
   MVVM (Stacked package by FilledStacks: https://pub.dev/packages/stacked). 
+    
   Firebase Cloud Firestore. 
   
