@@ -18,8 +18,8 @@ class ActivitiesView extends StatelessWidget {
             body: ListView(
               children: [
                 /// New activities go here
-                ActivitiesListTileView('Dynamic List', Routes.dynamicListViewRoute),
-                ActivitiesListTileView('Dynamic List', Routes.sharingViewRoute),
+                ActivitiesListTileView('Dynamic list example', Routes.dynamicListViewRoute),
+                ActivitiesListTileView('Share example', Routes.sharingViewRoute),
 
               ],
             ),

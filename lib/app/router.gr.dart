@@ -10,11 +10,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../ui/views/activities/activities_view.dart';
+import '../ui/views/activities/dynamic_list_view.dart';
 import '../ui/views/activities/sharing_view.dart';
 import '../ui/views/authentication/login_view.dart';
+import '../ui/views/authentication/register_view.dart';
 import '../ui/views/home/home_view.dart';
 import '../ui/views/profile/profile_view.dart';
-import '../ui/views/record/dynamic_list_view.dart';
 import '../ui/views/settings/settings_view.dart';
 import '../ui/views/startup/startup_view.dart';
 
@@ -27,6 +28,7 @@ class Routes {
   static const String dynamicListViewRoute = '/dynamic-list-view';
   static const String loginViewRoute = '/login-view';
   static const String sharingViewRoute = '/sharing-view';
+  static const String registerViewRoute = '/register-view';
   static const String unknownViewRoute = '*';
   static const all = <String>{
     startupViewRoute,
@@ -37,6 +39,7 @@ class Routes {
     dynamicListViewRoute,
     loginViewRoute,
     sharingViewRoute,
+    registerViewRoute,
     unknownViewRoute,
   };
 }
@@ -53,6 +56,7 @@ class Router extends RouterBase {
     RouteDef(Routes.dynamicListViewRoute, page: DynamicListView),
     RouteDef(Routes.loginViewRoute, page: LoginView),
     RouteDef(Routes.sharingViewRoute, page: SharingView),
+    RouteDef(Routes.registerViewRoute, page: RegisterView),
     RouteDef(Routes.unknownViewRoute, page: HomeView),
   ];
   @override
@@ -103,6 +107,12 @@ class Router extends RouterBase {
     SharingView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => SharingView(),
+        settings: data,
+      );
+    },
+    RegisterView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => RegisterView(),
         settings: data,
       );
     },

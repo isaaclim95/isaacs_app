@@ -1,8 +1,25 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart' hide Router;
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'app/locator.dart';
 import 'app/router.gr.dart';
 import 'package:flutter/material.dart' hide Router;
+
+final materialThemeData = ThemeData(
+    primarySwatch: Colors.blue,
+    scaffoldBackgroundColor: Colors.white,
+    accentColor: Colors.blue,
+    appBarTheme: AppBarTheme(color: Colors.blue.shade600),
+    primaryColor: Colors.blue,
+    secondaryHeaderColor: Colors.blue,
+    canvasColor: Colors.blue,
+    backgroundColor: Colors.red,
+    textTheme: TextTheme().copyWith(body1: TextTheme().body1));
+final cupertinoTheme = CupertinoThemeData(
+    primaryColor: Colors.blue,
+    barBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: Colors.white);
 
 void main() async {
 
@@ -58,11 +75,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return PlatformApp(
       title: 'Isaac\'s App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      material: (_, __) => MaterialAppData(theme: materialThemeData),
+      cupertino: (_, __) => CupertinoAppData(theme: cupertinoTheme),
 
       // Our home view (a Widget).
       initialRoute: Routes.startupViewRoute,

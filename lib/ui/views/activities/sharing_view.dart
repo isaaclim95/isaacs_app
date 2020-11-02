@@ -14,7 +14,7 @@ class SharingView extends StatelessWidget {
             body: Container(
               child: Column(
                 children: [
-                  RaisedButton(
+                  PlatformButton(
                     child: Text("Share"),
                     onPressed: () {
                       // Share.share('check out my website');

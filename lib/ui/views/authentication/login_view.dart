@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:isaacs_app/ui/models/login_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
@@ -7,10 +8,10 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder<LoginViewModel>.nonReactive(
+    return ViewModelBuilder<LoginViewModel>.reactive(
       viewModelBuilder: () => LoginViewModel(),
-      builder: (context, model, child) => Scaffold(
-        appBar: AppBar(
+      builder: (context, model, child) => PlatformScaffold(
+        appBar: PlatformAppBar(
           title: Text(model.title),
         ),
         body: GestureDetector(
@@ -27,30 +28,37 @@ class LoginView extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
-                      child: TextFormField(
+                      child: PlatformTextField(
                         controller: model.emailController,
                         obscureText: false,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Email',
-                        ),
+                        // decoration: InputDecoration(
+                        //   border: OutlineInputBorder(),
+                        //   labelText: 'Email',
+                        // ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10.0),
-                      child: TextFormField(
+                      child: PlatformTextField(
                         controller: model.passwordController,
                         obscureText: true,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Password',
-                        ),
+                        // decoration: InputDecoration(
+                        //   border: OutlineInputBorder(),
+                        //   labelText: 'Password',
+                        // ),
                       ),
                     ),
-                    RaisedButton(
+                    PlatformButton(
                       child: Text("Login"),
                       onPressed: model.login,
-                    )
+                    ),
+                    PlatformButton(
+                      child: Text("Register"),
+                      onPressed: () => model.goToRegisterView(),
+                    ),
+                    model.isBusy ? CircularProgressIndicator()
+                        : Center(child: Container()),
+
                   ],
                 ),
               ),

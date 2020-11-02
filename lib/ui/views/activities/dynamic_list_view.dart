@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:isaacs_app/ui/models/dynamic_list_viewmodel.dart';
 import 'package:stacked/stacked.dart';
@@ -8,8 +9,8 @@ class DynamicListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<DynamicListViewModel>.reactive(
-      builder: (context, model, child) => Scaffold(
-        appBar: AppBar(
+      builder: (context, model, child) => PlatformScaffold(
+        appBar: PlatformAppBar(
           title: Text(model.title),
         ),
         body: Column(
@@ -21,13 +22,13 @@ class DynamicListView extends StatelessWidget {
                 return model.tiles[index];
               },
             ),
-            RaisedButton(
+            PlatformButton(
               child: Text("Add tile"),
               onPressed: () {
                 model.addTile();
               },
             ),
-            RaisedButton(
+            PlatformButton(
               child: Text("Show text's"),
               onPressed: () {
                 Fluttertoast.showToast(

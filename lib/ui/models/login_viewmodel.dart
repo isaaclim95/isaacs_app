@@ -24,17 +24,23 @@ class LoginViewModel extends BaseViewModel {
   String get title => '$_title';
 
   void setupTextControllers() {
-    _emailController.text = "isaaclim95@gmail.com";
-    _passwordController.text = "password123";
+    // _emailController.text = "isaaclim95@gmail.com";
+    // _passwordController.text = "password123";
   }
 
   Future<void> login() async  {
+    setBusy(true);
     if(await _authService.signIn(_emailController.text, _passwordController.text)) {
       await _navigationService.replaceWith(Routes.homeViewRoute);
     } else  {
       // TODO: Put toast here
       print("Failed to login.");
     }
+    setBusy(false);
+  }
+
+  Future<void> goToRegisterView() async {
+    _navigationService.navigateTo(Routes.registerViewRoute);
   }
 
 }

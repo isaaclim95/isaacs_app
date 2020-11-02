@@ -14,6 +14,18 @@ class AuthService {
 
   String get uid => _auth.currentUser.uid;
 
+  Future<bool> signUp(email, password) async {
+    try {
+      await _auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password);
+      return true;
+    } catch (e) {
+      print("Failed to signUp(): " + e.toString());
+      return false;
+    }
+  }
+
   Future<bool> signOut() async {
     try {
       await _auth.signOut();

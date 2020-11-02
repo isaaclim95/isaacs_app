@@ -2,9 +2,10 @@ import 'package:auto_route/auto_route_annotations.dart';
 import 'package:isaacs_app/ui/views/activities/activities_view.dart';
 import 'package:isaacs_app/ui/views/activities/sharing_view.dart';
 import 'package:isaacs_app/ui/views/authentication/login_view.dart';
+import 'package:isaacs_app/ui/views/authentication/register_view.dart';
 import 'package:isaacs_app/ui/views/home/home_view.dart';
 import 'package:isaacs_app/ui/views/profile/profile_view.dart';
-import 'package:isaacs_app/ui/views/record/dynamic_list_view.dart';
+import 'package:isaacs_app/ui/views/activities/dynamic_list_view.dart';
 import 'package:isaacs_app/ui/views/settings/settings_view.dart';
 import 'package:isaacs_app/ui/views/startup/startup_view.dart';
 
@@ -24,6 +25,7 @@ import 'package:isaacs_app/ui/views/startup/startup_view.dart';
     MaterialRoute(page: DynamicListView, name: 'dynamicListViewRoute'),
     MaterialRoute(page: LoginView, name: 'loginViewRoute'),
     MaterialRoute(page: SharingView, name: 'sharingViewRoute'),
+    MaterialRoute(page: RegisterView, name: 'registerViewRoute'),
     MaterialRoute(path: "*", page: HomeView, name: 'unknownViewRoute')
   ]
 )
