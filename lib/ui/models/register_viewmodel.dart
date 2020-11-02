@@ -7,7 +7,8 @@ import 'package:isaacs_app/app/locator.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class RegisterViewModel extends BaseViewModel {
-  LoginViewModel() {
+
+  RegisterViewModel() {
     setupTextControllers();
     _navigationService.config(defaultTransition: NavigationTransition.Fade, defaultDurationTransition: Duration(seconds: 1));
   }
@@ -23,6 +24,7 @@ class RegisterViewModel extends BaseViewModel {
   String _title = "Register View";
   String get title => '$_title';
 
+  /// Can place default credentials here
   void setupTextControllers() {
     // _emailController.text = "isaaclim95@gmail.com";
     // _passwordController.text = "password123";
@@ -32,7 +34,6 @@ class RegisterViewModel extends BaseViewModel {
     if(await _authService.signIn(_emailController.text, _passwordController.text)) {
       await _navigationService.replaceWith(Routes.homeViewRoute);
     } else  {
-      // TODO: Put toast here
       Fluttertoast.showToast(
           msg: "Failed to login",
           toastLength: Toast.LENGTH_SHORT,

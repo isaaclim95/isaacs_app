@@ -2,17 +2,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
+
   static final FirebaseAuth _auth = FirebaseAuth.instance;
 
   final CollectionReference userCollection =
   FirebaseFirestore.instance.collection("users");
 
+  String get uid => _auth.currentUser.uid;
+
   bool isSignedIn() {
     var user = _auth.currentUser;
     return user != null;
   }
-
-  String get uid => _auth.currentUser.uid;
 
   Future<bool> signUp(email, password) async {
     try {

@@ -51,7 +51,6 @@ class RegisterView extends StatelessWidget {
                           ),
                           model.isBusy ? CircularProgressIndicator()
                               : Center(child: Container()),
-
                         ],
                       ),
                     ),

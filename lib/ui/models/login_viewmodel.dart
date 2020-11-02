@@ -23,6 +23,7 @@ class LoginViewModel extends BaseViewModel {
   String _title = "Login View";
   String get title => '$_title';
 
+  /// Can place default credentials here
   void setupTextControllers() {
     // _emailController.text = "isaaclim95@gmail.com";
     // _passwordController.text = "password123";

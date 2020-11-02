@@ -42,19 +42,31 @@ class LoginView extends StatelessWidget {
                       child: PlatformTextField(
                         controller: model.passwordController,
                         obscureText: true,
-                        // decoration: InputDecoration(
-                        //   border: OutlineInputBorder(),
-                        //   labelText: 'Password',
-                        // ),
                       ),
                     ),
-                    PlatformButton(
-                      child: Text("Login"),
-                      onPressed: model.login,
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: SizedBox(
+                        width: 150,
+                        child: PlatformButton(
+                          padding: EdgeInsets.all(0.0),
+                          color: Colors.grey[100],
+                          child: Text("Login", style: TextStyle(color: Colors.blue)),
+                          onPressed: model.login,
+                        ),
+                      ),
                     ),
-                    PlatformButton(
-                      child: Text("Register"),
-                      onPressed: () => model.goToRegisterView(),
+                    Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: SizedBox(
+                        width: 150,
+                        child: PlatformButton(
+                          padding: EdgeInsets.all(0.0),
+                          color: Colors.grey[100],
+                          child: Text("Register", style: TextStyle(color: Colors.blue)),
+                          onPressed: () => model.goToRegisterView(),
+                        ),
+                      ),
                     ),
                     model.isBusy ? CircularProgressIndicator()
                         : Center(child: Container()),
