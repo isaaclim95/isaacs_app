@@ -8,12 +8,9 @@ import 'package:flutter/material.dart';
 
 class LoginViewModel extends BaseViewModel {
 
-  BuildContext context;
+  final BuildContext context;
 
-  LoginViewModel(this.context) {
-    setupTextControllers();
-    _navigationService.config(defaultTransition: NavigationTransition.Fade, defaultDurationTransition: Duration(seconds: 1));
-  }
+  LoginViewModel(this.context);
 
   final AuthService _authService = locator<AuthService>();
   final NavigationService _navigationService = locator<NavigationService>();
@@ -25,27 +22,25 @@ class LoginViewModel extends BaseViewModel {
 
   String _title = "Login View";
   String get title => '$_title';
-  bool incorrectCredentials = false;
-
-  /// Can place default credentials here
-  void setupTextControllers() {
-    // _emailController.text = "isaaclim95@gmail.com";
-    // _passwordController.text = "password123";
-  }
+  bool _obscure = true;
 
   Future<void> login() async  {
     setBusy(true);
     try {
-      if(await _authService.signIn(_emailController.text, _passwordController.text))  {
-      } else  {
-      }
+      await _authService.signIn(_emailController.text, _passwordController.text);
       await _navigationService.replaceWith(Routes.homeViewRoute);
     } catch (exception) {
-      incorrectCredentials = true;
       showIncorrectCredentialsDialog(context);
       print("Failed to login: " + exception.toString());
     }
     setBusy(false);
+  }
+
+  bool get obscureText => _obscure;
+
+  void obscure () {
+    _obscure = !_obscure;
+    notifyListeners();
   }
 
   Future<void> goToRegisterView() async {
