@@ -1,7 +1,5 @@
-import 'package:isaacs_app/services/authentication_service.dart';
 import 'package:share/share.dart';
 import 'package:stacked/stacked.dart';
-import 'package:isaacs_app/app/locator.dart';
 
 class SharingViewModel extends BaseViewModel  {
 

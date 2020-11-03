@@ -45,9 +45,7 @@ class AuthService {
       print("Signed in.");
       return true;
     } catch (e) {
-      print("Failed to sign in.");
-      print(e);
-      return false;
+      throw e;
     }
   }
 

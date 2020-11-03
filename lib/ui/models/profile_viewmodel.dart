@@ -7,7 +7,6 @@ class ProfileViewModel extends StreamViewModel<List<UserModel>> {
   final CollectionReference userCollection =
   FirebaseFirestore.instance.collection("users");
 
-
   Stream<List<UserModel>> get getUserList {
     return userCollection.snapshots().map((snapshot) => snapshot.docs
         .map((docSnapshot) => UserModel.fromJson(docSnapshot.data()))

@@ -47,7 +47,7 @@ class StartupButtonView extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18.0),
             ),
-            child: PlatformText(model.title),
+            child: Text(model.title),
 
             // Here we declare what the `button will do when it is pressed.
             // In this case, we call the StartupButtonViewModel function, navigateToPage.

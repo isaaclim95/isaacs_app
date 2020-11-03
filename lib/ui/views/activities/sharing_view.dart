@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:isaacs_app/ui/models/activities/sharing_viewmodel.dart';
-import 'package:share/share.dart';
 import 'package:stacked/stacked.dart';
 
 class SharingView extends StatelessWidget {

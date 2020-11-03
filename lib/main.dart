@@ -9,13 +9,8 @@ import 'package:flutter/material.dart' hide Router;
 final materialThemeData = ThemeData(
     primarySwatch: Colors.blue,
     scaffoldBackgroundColor: Colors.white,
-    accentColor: Colors.blue,
-    appBarTheme: AppBarTheme(color: Colors.blue.shade600),
     primaryColor: Colors.blue,
-    secondaryHeaderColor: Colors.blue,
-    canvasColor: Colors.blue,
-    backgroundColor: Colors.red,
-    textTheme: TextTheme().copyWith(body1: TextTheme().body1));
+    canvasColor: Colors.blue);
 final cupertinoTheme = CupertinoThemeData(
     primaryColor: Colors.blue,
     barBackgroundColor: Colors.white,
@@ -76,6 +71,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return PlatformApp(
+
       title: 'Isaac\'s App',
       debugShowCheckedModeBanner: false,
       material: (_, __) => MaterialAppData(theme: materialThemeData),
