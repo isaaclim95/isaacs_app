@@ -39,6 +39,7 @@ class AuthService {
     }
   }
 
+  // TODO: handle exceptions and alert user
   Future<bool> signIn(email, password) async {
     try {
       await _auth.signInWithEmailAndPassword(email:email, password: password);

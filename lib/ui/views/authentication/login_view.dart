@@ -4,8 +4,11 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:isaacs_app/ui/behaviour/behaviour.dart';
 import 'package:isaacs_app/ui/models/login_viewmodel.dart';
+import 'package:isaacs_app/ui/views/home/home_view.dart';
 import 'package:stacked/stacked.dart';
 import 'dart:io';
+
+import 'package:stacked_services/stacked_services.dart';
 
 class LoginView extends StatelessWidget {
   static bool isAndroid;
@@ -142,6 +145,16 @@ class LoginView extends StatelessWidget {
                         ? CircularProgressIndicator()
                         : CupertinoActivityIndicator())
                         : Container(),
+                    Container(
+                      color: Colors.transparent,
+                      height: 50,
+                      width: 50,
+                      child: PlatformButton(
+                        color: Colors.transparent,
+                        disabledColor: Colors.transparent,
+                        onPressed: () => NavigationService().navigateToView(HomeView())
+                      )
+                    )
                   ]),
                 ),
               ),
