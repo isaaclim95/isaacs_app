@@ -37,118 +37,111 @@ class LoginView extends StatelessWidget {
               child: Container(
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
-                  child: Stack(children: [
-                    Column(children: [
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Log In",
-                          style: TextStyle(fontSize: 35),
-                        ),
-                      ),
-                      SizedBox(height: 60),
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Text(
-                              "Email",
-                              style: TextStyle(color: Colors.grey),
-                            ),
-                          )),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 20.0),
-                        child: isAndroid
-                            ? Container(
-                                height: 50,
-                                child: TextFormField(
-                                  controller: model.emailController,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(),
-                                  ),
-                                ),
-                              )
-                            : CupertinoTextField(
-                                controller: model.emailController,
-                                obscureText: false,
-                              ),
-                      ),
-                      Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: Text("Password",
-                                style: TextStyle(color: Colors.grey)),
-                          )),
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: isAndroid
-                            ? Container(
-                                height: 50,
-                                child: TextFormField(
-                                  controller: model.passwordController,
-                                  obscureText: model.obscureText,
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    suffixIcon: IconButton(
-                                      icon: Icon(Icons.remove_red_eye),
-                                      onPressed: () => model.obscure(),
-                                    ),
-                                  ),
-                                ),
-                              )
-                            : Container(
-                                height: 50,
-                                child: CupertinoTextField(
-                                  controller: model.passwordController,
-                                  obscureText: model.obscureText,
-                                  suffix: CupertinoButton(
-                                      child: Icon(Icons.remove_red_eye),
-                                      onPressed: () => model.obscure()),
-                                ),
-                              ),
-                      ),
-                      SizedBox(
-                        width: 150,
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: PlatformButton(
-                            padding: EdgeInsets.all(0.0),
-                            color: Colors.grey[100],
-                            child: Text("Login",
-                                style: TextStyle(color: Colors.blue)),
-                            onPressed: () {
-                              model.login();
-                              FocusScope.of(context).requestFocus(FocusNode());
-                            },
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 150,
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 8.0),
-                          child: PlatformButton(
-                            padding: EdgeInsets.all(0.0),
-                            color: Colors.grey[100],
-                            child: Text("Register",
-                                style: TextStyle(color: Colors.blue)),
-                            onPressed: () => model.goToRegisterView(),
-                          ),
-                        ),
-                      ),
-                    ]),
-                    Container(
-                      height: MediaQuery.of(context).size.height,
-                      child: Center(
-                        child: model.isBusy
-                            ? (isAndroid
-                                ? CircularProgressIndicator()
-                                : CupertinoActivityIndicator())
-                            : Container(),
+                  child: Column(children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Log In",
+                        style: TextStyle(fontSize: 35),
                       ),
                     ),
+                    SizedBox(height: 60),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text(
+                            "Email",
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: isAndroid
+                          ? Container(
+                              height: 50,
+                              child: TextFormField(
+                                controller: model.emailController,
+                                obscureText: false,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                ),
+                              ),
+                            )
+                          : CupertinoTextField(
+                            controller: model.emailController,
+                            obscureText: false,
+                            suffix: CupertinoButton(
+                                child: Icon(null),
+                                onPressed: () => model.obscure()),
+                          ),
+                    ),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text("Password",
+                              style: TextStyle(color: Colors.grey)),
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: isAndroid
+                          ? Container(
+                              height: 50,
+                              child: TextFormField(
+                                controller: model.passwordController,
+                                obscureText: model.obscureText,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  suffixIcon: IconButton(
+                                    icon: Icon(Icons.remove_red_eye),
+                                    onPressed: () => model.obscure(),
+                                  ),
+                                ),
+                              ),
+                            )
+                          : CupertinoTextField(
+                            controller: model.passwordController,
+                            obscureText: model.obscureText,
+                            suffix: CupertinoButton(
+                                child: Icon(Icons.remove_red_eye),
+                                onPressed: () => model.obscure()),
+                          ),
+                    ),
+                    SizedBox(
+                      width: 150,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: PlatformButton(
+                          padding: EdgeInsets.all(0.0),
+                          color: Colors.grey[100],
+                          child: Text("Login",
+                              style: TextStyle(color: Colors.blue)),
+                          onPressed: () {
+                            model.login();
+                            FocusScope.of(context).requestFocus(FocusNode());
+                          },
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 150,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 8.0),
+                        child: PlatformButton(
+                          padding: EdgeInsets.all(0.0),
+                          color: Colors.grey[100],
+                          child: Text("Register",
+                              style: TextStyle(color: Colors.blue)),
+                          onPressed: () => model.goToRegisterView(),
+                        ),
+                      ),
+                    ),
+                    model.isBusy
+                        ? (isAndroid
+                        ? CircularProgressIndicator()
+                        : CupertinoActivityIndicator())
+                        : Container(),
                   ]),
                 ),
               ),
