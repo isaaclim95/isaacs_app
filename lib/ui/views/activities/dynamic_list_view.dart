@@ -11,7 +11,7 @@ class DynamicListView extends StatelessWidget {
     return ViewModelBuilder<DynamicListViewModel>.reactive(
       builder: (context, model, child) => PlatformScaffold(
         appBar: PlatformAppBar(
-          title: Text(model.title),
+          title: Text("Dynamic list example"),
         ),
         body: Column(
           children: [

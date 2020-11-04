@@ -11,15 +11,11 @@ class DynamicListViewModel extends BaseViewModel {
 
   }
 
-  String _title = "Dynamic List View";
-
 
   // List of tiles
   List<CupertinoTextField> tiles = [];
 
   List<TextEditingController> controllers = [];
-
-  String get title => '$_title';
 
   List<String> get emails  {
     List<String> _emails = [];

@@ -9,14 +9,15 @@ import 'dart:io';
 import 'package:isaacs_app/constants/globals.dart' as globals;
 
 final materialThemeData = ThemeData(
+    primarySwatch: Colors.blue,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
         color: Colors.white,
         shadowColor: Colors.transparent,
         iconTheme: IconThemeData(color: Colors.black,)
     ),
-    primaryColor: Colors.blue,
-    canvasColor: Colors.blue);
+    primaryColor: Colors.white,
+    canvasColor: Colors.white);
 final cupertinoTheme = CupertinoThemeData(
     primaryColor: Colors.blue,
     barBackgroundColor: Colors.white,

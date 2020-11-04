@@ -9,23 +9,29 @@ class StreamsExampleView extends StatelessWidget {
     return ViewModelBuilder<StreamsExampleViewModel>.reactive(
       builder: (context, model, child) => PlatformScaffold(
           appBar: PlatformAppBar(
-            title: Text(model.title),
+            title: Text("Here we build a listview using"),
           ),
-          body: model.dataReady
-              ? ListView.builder(
-              itemCount: model.users.length,
-              itemBuilder: (context, index) {
-                var user = model.users[index];
-                return Material(  // Wrapped in Material so we can use the ListTile widget in ios
-                  child: ListTile(
-                    title: Text(
-                        user.name + " " + user.age.toString() + " " + user.weight.toString()
-                            + " " + user.height.toString()
-                    ),
-                  ),
-                );
-              })
-              : Center(child: CircularProgressIndicator())),
+          body: Column(
+            children: [
+              Text("Users"),
+              model.dataReady
+                  ? ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: model.users.length,
+                  itemBuilder: (context, index) {
+                    var user = model.users[index];
+                    return Material(  // Wrapped in Material so we can use the ListTile widget in ios
+                      child: ListTile(
+                        title: Text(
+                            user.name + " " + user.age.toString() + " " + user.weight.toString()
+                                + " " + user.height.toString()
+                        ),
+                      ),
+                    );
+                  })
+                  : Center(child: CircularProgressIndicator()),
+            ],
+          )),
       viewModelBuilder: () => StreamsExampleViewModel(),
     );
   }

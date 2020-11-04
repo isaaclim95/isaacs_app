@@ -9,15 +9,20 @@ class SharingView extends StatelessWidget {
     return ViewModelBuilder<SharingViewModel>.nonReactive(
         builder: (context, model, child) =>
           PlatformScaffold(
-            appBar: PlatformAppBar(),
+            appBar: PlatformAppBar(
+              title: Text("Share example"),
+            ),
             body: Container(
               child: Center(
                 child: Column(
                   children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.5,
-                      child: PlatformTextField(
-                        controller: model.sharingController,
+                    Flexible(
+                      child: FractionallySizedBox(
+                        widthFactor: 0.5,
+                        heightFactor: 0.5,
+                        child: PlatformTextField(
+                          controller: model.sharingController,
+                        ),
                       ),
                     ),
                     SizedBox(height: 30),
