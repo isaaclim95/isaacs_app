@@ -4,22 +4,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:isaacs_app/ui/behaviour/behaviour.dart';
 import 'package:isaacs_app/ui/models/login_viewmodel.dart';
-import 'package:isaacs_app/ui/views/home/home_view.dart';
 import 'package:stacked/stacked.dart';
-import 'dart:io';
-
-import 'package:stacked_services/stacked_services.dart';
+import 'package:isaacs_app/constants/globals.dart' as globals;
 
 class LoginView extends StatelessWidget {
-  static bool isAndroid;
-
-  LoginView() {
-    if (Platform.isAndroid) {
-      isAndroid = true;
-    } else if (Platform.isIOS) {
-      isAndroid = false;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +48,7 @@ class LoginView extends StatelessWidget {
                         )),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
-                      child: isAndroid
+                      child: globals.isAndroid
                           ? Container(
                               height: 50,
                               child: TextFormField(
@@ -88,7 +76,7 @@ class LoginView extends StatelessWidget {
                         )),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
-                      child: isAndroid
+                      child: globals.isAndroid
                           ? Container(
                               height: 50,
                               child: TextFormField(
@@ -141,20 +129,10 @@ class LoginView extends StatelessWidget {
                       ),
                     ),
                     model.isBusy
-                        ? (isAndroid
+                        ? (globals.isAndroid
                         ? CircularProgressIndicator()
                         : CupertinoActivityIndicator())
                         : Container(),
-                    Container(
-                      color: Colors.transparent,
-                      height: 50,
-                      width: 50,
-                      child: PlatformButton(
-                        color: Colors.transparent,
-                        disabledColor: Colors.transparent,
-                        onPressed: () => NavigationService().navigateToView(HomeView())
-                      )
-                    )
                   ]),
                 ),
               ),

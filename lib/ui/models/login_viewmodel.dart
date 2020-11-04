@@ -25,14 +25,38 @@ class LoginViewModel extends BaseViewModel {
   bool _obscure = true;
 
   Future<void> login() async  {
+    String errorMsg;
+    String contentMsg = "Please try again.";
     setBusy(true);
     try {
       await _authService.signIn(_emailController.text, _passwordController.text);
       await _navigationService.replaceWith(Routes.homeViewRoute);
-    } catch (exception) {
-      showIncorrectCredentialsDialog(context);
-      print("Failed to login: " + exception.toString());
+    } catch (error) {
+      print(error.code);
+      switch (error.code) {
+        case "wrong-password":
+          errorMsg = "The password is incorrect.";
+          break;
+        case "invalid-email":
+          errorMsg = "The email address is incorrect.";
+          break;
+        case "user-not-found":
+          errorMsg = "Email not found.";
+          break;
+        case "unknown":
+          errorMsg = "Enter a valid email and password.";
+          break;
+        case "too-many-requests":
+          errorMsg = "Too many login attempts.";
+          contentMsg = "Please try again later.";
+          break;
+        default:
+          errorMsg = "Something went wrong";
+      }
+      print(error.toString());
+
     }
+    showIncorrectCredentialsDialog(context, errorMsg, contentMsg);
     setBusy(false);
   }
 
@@ -47,14 +71,14 @@ class LoginViewModel extends BaseViewModel {
     _navigationService.navigateTo(Routes.registerViewRoute);
   }
 
-  Future<void> showIncorrectCredentialsDialog(BuildContext context) {
+  Future<void> showIncorrectCredentialsDialog(BuildContext context, String title, content) {
     return showCupertinoDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return CupertinoAlertDialog(
-          title: Text('Incorrect email or password'),
-          content: Text('Please try again.'),
+          title: Text(title),
+          content: Text(content),
           actions: <Widget>[
             CupertinoDialogAction(
               child: Text('Ok'),

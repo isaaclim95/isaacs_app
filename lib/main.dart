@@ -5,6 +5,8 @@ import 'package:stacked_services/stacked_services.dart';
 import 'app/locator.dart';
 import 'app/router.gr.dart';
 import 'package:flutter/material.dart' hide Router;
+import 'dart:io';
+import 'package:isaacs_app/constants/globals.dart' as globals;
 
 final materialThemeData = ThemeData(
     primarySwatch: Colors.blue,
@@ -43,6 +45,15 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+
+
+    if (Platform.isAndroid) {
+      globals.isAndroid = true;
+    } else if (Platform.isIOS) {
+      globals.isAndroid = false;
+    } else  {
+      throw "ERROR WITH PLATFORM";
+    }
     // isOnline = true;
     // _authService.updateStatus(isOnline);
     // WidgetsBinding.instance.addObserver(this);

@@ -20,7 +20,7 @@ class StartupViewModel extends BaseViewModel {
   String get title => '$_title';
 
   Future<void> handleStartUpLogic() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     var isSignedIn = _authService.isSignedIn();
     if(isSignedIn)  {
       isSignedIn = true;

@@ -23,6 +23,7 @@ class RegisterViewModel extends BaseViewModel {
 
   String _title = "Register View";
   String get title => '$_title';
+  bool _obscure = true;
 
   /// Can place default credentials here
   void setupTextControllers() {
@@ -43,6 +44,13 @@ class RegisterViewModel extends BaseViewModel {
           fontSize: 16.0
       );
     }
+  }
+
+  bool get obscureText => _obscure;
+
+  void obscure () {
+    _obscure = !_obscure;
+    notifyListeners();
   }
 
   Future<void> register() async  {
