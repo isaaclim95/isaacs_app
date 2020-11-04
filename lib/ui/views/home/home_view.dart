@@ -30,7 +30,6 @@ class HomeView extends StatelessWidget {
                   // Grid of 4 StartupButtonView's. We pass in the title of the Page
                   // and the route
                   StartupButtonView('Activities', Routes.activitiesViewRoute),
-                  StartupButtonView('Profile', Routes.profileViewRoute),
                   StartupButtonView('Settings', Routes.settingsViewRoute),
                 ],
               ),

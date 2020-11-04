@@ -12,10 +12,10 @@ import 'package:flutter/material.dart';
 import '../ui/views/activities/activities_view.dart';
 import '../ui/views/activities/dynamic_list_view.dart';
 import '../ui/views/activities/sharing_view.dart';
+import '../ui/views/activities/streams_example_view.dart';
 import '../ui/views/authentication/login_view.dart';
 import '../ui/views/authentication/register_view.dart';
 import '../ui/views/home/home_view.dart';
-import '../ui/views/profile/profile_view.dart';
 import '../ui/views/settings/settings_view.dart';
 import '../ui/views/startup/startup_view.dart';
 
@@ -24,7 +24,7 @@ class Routes {
   static const String homeViewRoute = '/home-view';
   static const String activitiesViewRoute = '/activities-view';
   static const String settingsViewRoute = '/settings-view';
-  static const String profileViewRoute = '/profile-view';
+  static const String streamsExampleViewRoute = '/streams-example-view';
   static const String dynamicListViewRoute = '/dynamic-list-view';
   static const String loginViewRoute = '/login-view';
   static const String sharingViewRoute = '/sharing-view';
@@ -35,7 +35,7 @@ class Routes {
     homeViewRoute,
     activitiesViewRoute,
     settingsViewRoute,
-    profileViewRoute,
+    streamsExampleViewRoute,
     dynamicListViewRoute,
     loginViewRoute,
     sharingViewRoute,
@@ -52,7 +52,7 @@ class Router extends RouterBase {
     RouteDef(Routes.homeViewRoute, page: HomeView),
     RouteDef(Routes.activitiesViewRoute, page: ActivitiesView),
     RouteDef(Routes.settingsViewRoute, page: SettingsView),
-    RouteDef(Routes.profileViewRoute, page: ProfileView),
+    RouteDef(Routes.streamsExampleViewRoute, page: StreamsExampleView),
     RouteDef(Routes.dynamicListViewRoute, page: DynamicListView),
     RouteDef(Routes.loginViewRoute, page: LoginView),
     RouteDef(Routes.sharingViewRoute, page: SharingView),
@@ -86,9 +86,9 @@ class Router extends RouterBase {
         settings: data,
       );
     },
-    ProfileView: (data) {
+    StreamsExampleView: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => ProfileView(),
+        builder: (context) => StreamsExampleView(),
         settings: data,
       );
     },
