@@ -9,7 +9,6 @@ import 'dart:io';
 import 'package:isaacs_app/constants/globals.dart' as globals;
 
 final materialThemeData = ThemeData(
-    primarySwatch: Colors.blue,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
         color: Colors.white,

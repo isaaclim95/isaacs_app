@@ -10,7 +10,6 @@ class ActivitiesListTileView extends StatelessWidget {
   final String title;
   final String routeName;
 
-
   ActivitiesListTileView(this.title, this.routeName);
   
   @override

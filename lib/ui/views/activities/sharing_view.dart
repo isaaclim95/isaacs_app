@@ -11,16 +11,24 @@ class SharingView extends StatelessWidget {
           PlatformScaffold(
             appBar: PlatformAppBar(),
             body: Container(
-              child: Column(
-                children: [
-                  PlatformButton(
-                    child: Text("Share"),
-                    onPressed: () {
-                      // Share.share('check out my website');
-                      model.sendInvite();
-                    },
-                  ),
-                ],
+              child: Center(
+                child: Column(
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: PlatformTextField(
+                        controller: model.sharingController,
+                      ),
+                    ),
+                    SizedBox(height: 30),
+                    PlatformButton(
+                      child: Text("Share"),
+                      onPressed: () {
+                        model.share(model.sharingController.text);
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
