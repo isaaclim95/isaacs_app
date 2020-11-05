@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route_annotations.dart';
 import 'package:isaacs_app/ui/views/activities/activities_view.dart';
+import 'package:isaacs_app/ui/views/activities/email_example_view.dart';
 import 'package:isaacs_app/ui/views/activities/sharing_view.dart';
 import 'package:isaacs_app/ui/views/activities/streams_example_view.dart';
 import 'package:isaacs_app/ui/views/authentication/login_view.dart';
@@ -26,6 +27,7 @@ import 'package:isaacs_app/ui/views/startup/startup_view.dart';
     MaterialRoute(page: LoginView, name: 'loginViewRoute'),
     MaterialRoute(page: SharingView, name: 'sharingViewRoute'),
     MaterialRoute(page: RegisterView, name: 'registerViewRoute'),
+    MaterialRoute(page: EmailExampleView, name: 'emailExampleViewRoute'),
     MaterialRoute(path: "*", page: HomeView, name: 'unknownViewRoute')
   ]
 )
