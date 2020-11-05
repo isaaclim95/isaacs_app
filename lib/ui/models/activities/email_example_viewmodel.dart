@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
 import 'package:stacked/stacked.dart';
@@ -5,14 +6,16 @@ import 'package:http/http.dart' as http;
 
 class EmailExampleViewModel extends BaseViewModel {
 
+  final TextEditingController emailController = TextEditingController();
   final String port = "25";
   final String username = "apikey";
-  final String password = "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";
+  final String password = "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";
 
   void sendUserEmail() async {
     print('Sending email...');
+    print(emailController.text);
     sendEmail('isaaclim95@gmail.com', 'You\'ve been invited to use InspectionApp',
-        'dynamic link here');
+        'bruh');
   }
 
   // Uses sendgrid api to send user an email
