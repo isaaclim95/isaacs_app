@@ -16,9 +16,19 @@ class EmailExampleView extends StatelessWidget {
             child: Center(
                 child: Column(
               children: [
-                Text("Enter email to send to"),
+                Text("Email"),
                 PlatformTextField(
                   controller: model.emailController,
+                ),
+                SizedBox(height: 20),
+                Text("Subject"),
+                PlatformTextField(
+                  controller: model.subjectController,
+                ),
+                SizedBox(height: 20),
+                Text("Body"),
+                PlatformTextField(
+                  controller: model.bodyController,
                 ),
                 PlatformButton(
                   child: Text("Send email"),
