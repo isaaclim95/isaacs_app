@@ -1,6 +1,5 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:isaacs_app/app/router.gr.dart';
-import 'package:isaacs_app/services/authentication_service.dart';
 import 'package:isaacs_app/services/firebase_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter/material.dart';
