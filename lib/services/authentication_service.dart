@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:isaacs_app/app/locator.dart';
+import 'package:isaacs_app/services/firebase_service.dart';
 
 class AuthService {
 
-  static final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  final CollectionReference userCollection =
-  FirebaseFirestore.instance.collection("users");
-
-  String get uid => _auth.currentUser.uid;
+  String get uid {
+    return _auth.currentUser.uid  != null ? _auth.currentUser.uid : 'none';
+  }
 
   bool isSignedIn() {
     var user = _auth.currentUser;
@@ -20,6 +21,7 @@ class AuthService {
       await _auth.createUserWithEmailAndPassword(
           email: email,
           password: password);
+
       return true;
     } catch (e) {
       print("Failed to signUp(): " + e.toString());

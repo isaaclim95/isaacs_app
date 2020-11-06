@@ -36,8 +36,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   String uid;
   bool isOnline;
-  final FirebaseService _firebaseService = locator<FirebaseService>();
   final AuthService _authService = locator<AuthService>();
+  final FirebaseService _firebaseService = locator<FirebaseService>();
 
   @override
   void initState() {
@@ -51,7 +51,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       throw "ERROR WITH PLATFORM";
     }
     isOnline = true;
-    _firebaseService.updateStatus(isOnline);
+    if(_authService.isSignedIn()) {
+      _firebaseService.updateStatus(isOnline);
+    }
     WidgetsBinding.instance.addObserver(this);
   }
 

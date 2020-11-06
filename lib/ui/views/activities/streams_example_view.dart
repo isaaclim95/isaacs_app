@@ -15,8 +15,10 @@ class StreamsExampleView extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
+                SizedBox(height: 20),
                 Text('Here is an example of using streams. We build a listview '
                     'using ListView.builder, and listen for changes in the database.'),
+                SizedBox(height: 20),
                 model.dataReady
                     ? ListView.builder(
                         shrinkWrap: true,
@@ -32,7 +34,9 @@ class StreamsExampleView extends StatelessWidget {
                                   " " +
                                   user.weight.toString() +
                                   " " +
-                                  user.height.toString()),
+                                  user.height.toString() +
+                                  " " +
+                                  user.isOnline.toString()),
                             ),
                           );
                         })

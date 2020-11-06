@@ -1,6 +1,7 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:isaacs_app/app/router.gr.dart';
 import 'package:isaacs_app/services/authentication_service.dart';
+import 'package:isaacs_app/services/firebase_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:flutter/material.dart';
 import 'package:isaacs_app/app/locator.dart';
@@ -13,7 +14,7 @@ class RegisterViewModel extends BaseViewModel {
     _navigationService.config(defaultTransition: NavigationTransition.Fade, defaultDurationTransition: Duration(seconds: 1));
   }
 
-  final AuthService _authService = locator<AuthService>();
+  final FirebaseService _firebaseService = locator<FirebaseService>();
   final NavigationService _navigationService = locator<NavigationService>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -31,21 +32,6 @@ class RegisterViewModel extends BaseViewModel {
     // _passwordController.text = "password123";
   }
 
-  Future<void> login() async  {
-    if(await _authService.signIn(_emailController.text, _passwordController.text)) {
-      await _navigationService.replaceWith(Routes.homeViewRoute);
-    } else  {
-      Fluttertoast.showToast(
-          msg: "Failed to login",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          backgroundColor: Colors.grey,
-          textColor: Colors.white,
-          fontSize: 16.0
-      );
-    }
-  }
-
   bool get obscureText => _obscure;
 
   void obscure () {
@@ -55,7 +41,7 @@ class RegisterViewModel extends BaseViewModel {
 
   Future<void> register() async  {
     setBusy(true);
-    bool registered = await _authService.signUp(emailController.text, passwordController.text);
+    bool registered = await _firebaseService.signUp(emailController.text, passwordController.text);
     if(!registered)  {
       Fluttertoast.showToast(
           msg: "Failed to register",
