@@ -19,6 +19,20 @@ class StreamsExampleView extends StatelessWidget {
                 Text('Here is an example of using streams. We build a listview '
                     'using ListView.builder, and listen for changes in the database.'),
                 SizedBox(height: 20),
+                Table(
+                  children: [
+                    TableRow(children: [
+                      TableCell(child: Text('Name')),
+                      TableCell(child: Text('Age')),
+                      TableCell(
+                          child: Text('Weight')),
+                      TableCell(
+                          child: Text('Height')),
+                      TableCell(
+                          child: Text('Active')),
+                    ])
+                  ],
+                ),
                 model.dataReady
                     ? ListView.builder(
                         shrinkWrap: true,
@@ -27,16 +41,19 @@ class StreamsExampleView extends StatelessWidget {
                           var user = model.users[index];
                           return Material(
                             // Wrapped in Material so we can use the ListTile widget in ios
-                            child: ListTile(
-                              title: Text(user.name +
-                                  " " +
-                                  user.age.toString() +
-                                  " " +
-                                  user.weight.toString() +
-                                  " " +
-                                  user.height.toString() +
-                                  " " +
-                                  user.isOnline.toString()),
+                            child: Table(
+                              children: [
+                                TableRow(children: [
+                                  TableCell(child: Text(user.name)),
+                                  TableCell(child: Text(user.age.toString())),
+                                  TableCell(
+                                      child: Text(user.weight.toString())),
+                                  TableCell(
+                                      child: Text(user.height.toString())),
+                                  TableCell(
+                                      child: Text(user.isOnline.toString())),
+                                ])
+                              ],
                             ),
                           );
                         })
