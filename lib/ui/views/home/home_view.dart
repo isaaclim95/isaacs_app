@@ -5,6 +5,7 @@ import 'package:isaacs_app/ui/widgets/startup_buttonview.dart';
 import 'package:stacked/stacked.dart';
 import '../../models/home_viewmodel.dart';
 
+/// HomeView
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
