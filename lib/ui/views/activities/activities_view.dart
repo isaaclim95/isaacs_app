@@ -21,6 +21,7 @@ class ActivitiesView extends StatelessWidget {
                 ActivitiesListTileView('Streams example', Routes.streamsExampleViewRoute),
                 ActivitiesListTileView('Dynamic list example', Routes.dynamicListViewRoute),
                 ActivitiesListTileView('Share example', Routes.sharingViewRoute),
+                ActivitiesListTileView('Send email example', Routes.emailExampleViewRoute),
               ],
             ),
 

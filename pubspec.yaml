@@ -29,6 +29,7 @@ dependencies:
   stacked_services:
   flutter_platform_widgets:
   share: ^0.6.5+4
+  mailer: ^3.2.1
 
 dev_dependencies:
   flutter_test:

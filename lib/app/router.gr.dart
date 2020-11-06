@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/views/activities/activities_view.dart';
 import '../ui/views/activities/dynamic_list_view.dart';
+import '../ui/views/activities/email_example_view.dart';
 import '../ui/views/activities/sharing_view.dart';
 import '../ui/views/activities/streams_example_view.dart';
 import '../ui/views/authentication/login_view.dart';
@@ -29,6 +30,7 @@ class Routes {
   static const String loginViewRoute = '/login-view';
   static const String sharingViewRoute = '/sharing-view';
   static const String registerViewRoute = '/register-view';
+  static const String emailExampleViewRoute = '/email-example-view';
   static const String unknownViewRoute = '*';
   static const all = <String>{
     startupViewRoute,
@@ -40,6 +42,7 @@ class Routes {
     loginViewRoute,
     sharingViewRoute,
     registerViewRoute,
+    emailExampleViewRoute,
     unknownViewRoute,
   };
 }
@@ -57,6 +60,7 @@ class Router extends RouterBase {
     RouteDef(Routes.loginViewRoute, page: LoginView),
     RouteDef(Routes.sharingViewRoute, page: SharingView),
     RouteDef(Routes.registerViewRoute, page: RegisterView),
+    RouteDef(Routes.emailExampleViewRoute, page: EmailExampleView),
     RouteDef(Routes.unknownViewRoute, page: HomeView),
   ];
   @override
@@ -113,6 +117,12 @@ class Router extends RouterBase {
     RegisterView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => RegisterView(),
+        settings: data,
+      );
+    },
+    EmailExampleView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => EmailExampleView(),
         settings: data,
       );
     },
