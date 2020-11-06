@@ -7,6 +7,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../ui/views/activities/activities_view.dart';
@@ -109,8 +110,11 @@ class Router extends RouterBase {
       );
     },
     SharingView: (data) {
+      final args = data.getArgs<SharingViewArguments>(
+        orElse: () => SharingViewArguments(),
+      );
       return MaterialPageRoute<dynamic>(
-        builder: (context) => SharingView(),
+        builder: (context) => SharingView(key: args.key),
         settings: data,
       );
     },
@@ -127,4 +131,14 @@ class Router extends RouterBase {
       );
     },
   };
+}
+
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
+
+/// SharingView arguments holder class
+class SharingViewArguments {
+  final Key key;
+  SharingViewArguments({this.key});
 }

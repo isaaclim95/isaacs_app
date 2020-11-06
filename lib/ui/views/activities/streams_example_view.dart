@@ -9,31 +9,38 @@ class StreamsExampleView extends StatelessWidget {
     return ViewModelBuilder<StreamsExampleViewModel>.reactive(
       builder: (context, model, child) => PlatformScaffold(
           appBar: PlatformAppBar(
-            title: Text("Here we build a listview using"),
+            title: Text("Streams"),
           ),
-          body: Column(
-            children: [
-              Text("Users"),
-              model.dataReady
-                  ? ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: model.users.length,
-                  itemBuilder: (context, index) {
-                    var user = model.users[index];
-                    return Material(  // Wrapped in Material so we can use the ListTile widget in ios
-                      child: ListTile(
-                        title: Text(
-                            user.name + " " + user.age.toString() + " " + user.weight.toString()
-                                + " " + user.height.toString()
-                        ),
-                      ),
-                    );
-                  })
-                  : Center(child: CircularProgressIndicator()),
-            ],
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Text('Here is an example of using streams. We build a listview '
+                    'using ListView.builder, and listen for changes in the database.'),
+                model.dataReady
+                    ? ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: model.users.length,
+                        itemBuilder: (context, index) {
+                          var user = model.users[index];
+                          return Material(
+                            // Wrapped in Material so we can use the ListTile widget in ios
+                            child: ListTile(
+                              title: Text(user.name +
+                                  " " +
+                                  user.age.toString() +
+                                  " " +
+                                  user.weight.toString() +
+                                  " " +
+                                  user.height.toString()),
+                            ),
+                          );
+                        })
+                    : Center(child: CircularProgressIndicator()),
+              ],
+            ),
           )),
       viewModelBuilder: () => StreamsExampleViewModel(),
     );
   }
-
 }

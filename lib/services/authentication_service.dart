@@ -50,7 +50,5 @@ class AuthService {
     }
   }
 
-  Future<void> updateStatus(isOnline) async {
-    userCollection.doc(uid).update({"isOnline":"true"});
-  }
+
 }

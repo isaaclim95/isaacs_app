@@ -4,6 +4,9 @@ import 'package:isaacs_app/ui/models/activities/sharing_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 class SharingView extends StatelessWidget {
+
+  SharingView({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<SharingViewModel>.nonReactive(
