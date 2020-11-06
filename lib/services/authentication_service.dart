@@ -16,12 +16,11 @@ class AuthService {
     return user != null;
   }
 
-  Future<bool> signUp(email, password) async {
+  Future<bool> createUserWithEmailAndPassword(email, password) async {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: email,
           password: password);
-
       return true;
     } catch (e) {
       print("Failed to signUp(): " + e.toString());

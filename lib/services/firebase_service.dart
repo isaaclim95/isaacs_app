@@ -28,24 +28,35 @@ class FirebaseService {
         .toList());
   }
 
-  Future<bool> signUp(email, password) async {
+  Future<bool> register(email, password) async {
     try {
-      await _authService.signUp(email, password);
-      print('signed up');
+
+      await _authService.createUserWithEmailAndPassword(email, password);
+      print('Created new user with id: ' + _authService.uid);
+
       Map<String, dynamic> dict = {};
       dict.addAll({'id' : _authService.uid, 'name' : 'isaac', 'age' : 15, 'weight' : 50, 'height' : 179, 'isOnline' : true});
+      addField(userCollection, dict);
+
       await userCollection.doc(_authService.uid).set(dict);
-      print('added doc');
+      print('Added data to Firestore.');
       return true;
     } catch (e) {
       print('FirebaseService: [$e]');
       return false;
     }
+  }
 
-
-
-    // await userCollection?.doc(uid)?.update({"age" : 15});
-    // await userCollection.
+  /// Given a [CollectionReference] and Map of data, set the field in at the reference path
+  Future<bool> addField(CollectionReference documentRef, Map<String, dynamic> data) async {
+    try {
+      await userCollection.doc(_authService.uid).set(data);
+      print("added field: " + data.toString());
+      return true;
+    } catch (e) {
+      print('FirebaseService: [$e]');
+      return false;
+    }
   }
 
   Future<void> updateStatus(isOnline) async {

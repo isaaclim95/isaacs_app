@@ -41,7 +41,7 @@ class RegisterViewModel extends BaseViewModel {
 
   Future<void> register() async  {
     setBusy(true);
-    bool registered = await _firebaseService.signUp(emailController.text, passwordController.text);
+    bool registered = await _firebaseService.register(emailController.text, passwordController.text);
     if(!registered)  {
       Fluttertoast.showToast(
           msg: "Failed to register",
