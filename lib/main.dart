@@ -8,20 +8,32 @@ import 'package:flutter/material.dart' hide Router;
 import 'dart:io';
 import 'package:isaacs_app/constants/globals.dart' as globals;
 
+
+
 final materialThemeData = ThemeData(
-    primarySwatch: Colors.blue,
+    primarySwatch: Colors.orange,
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: AppBarTheme(
-        color: Colors.white,
-        shadowColor: Colors.transparent,
+        color: Colors.orange,
+        elevation: 0,
+
+        // shadowColor: Colors.transparent,
         iconTheme: IconThemeData(color: Colors.black,)
     ),
     primaryColor: Colors.white,
     canvasColor: Colors.white);
 final cupertinoTheme = CupertinoThemeData(
+
+    primaryContrastingColor: Colors.white,
+    // textTheme: CupertinoTextThemeData(
+    //   primaryColor: Colors.white,
+    //       textStyle: TextStyle(color: Colors.white)
+    // ),
     primaryColor: Colors.blue,
-    barBackgroundColor: Colors.white,
+    barBackgroundColor: Colors.orange,
+
     scaffoldBackgroundColor: Colors.white);
+
 
 void main() async {
 
@@ -87,6 +99,12 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return PlatformApp(
+      // Don't know why
+      localizationsDelegates: [
+        DefaultMaterialLocalizations.delegate,
+        DefaultCupertinoLocalizations.delegate,
+        DefaultWidgetsLocalizations.delegate,
+      ],
       title: 'Isaac\'s App',
       debugShowCheckedModeBanner: false,
       material: (_, __) => MaterialAppData(theme: materialThemeData),

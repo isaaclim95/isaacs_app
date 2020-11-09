@@ -3,9 +3,9 @@ import 'package:http/http.dart' as http;
 
 class EmailService  {
 
-  String key = "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";
+  String key = "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";
 
-  /// Uses the sendgrid api to send an email to [email] with subject and body
+  /// Uses the SendGrid api to send an email with subject and body
   void sendEmail(String to, String from, String subject, String body) async {
 
     Map<String, String> headers = new Map();

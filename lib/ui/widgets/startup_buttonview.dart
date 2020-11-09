@@ -44,6 +44,7 @@ class StartupButtonView extends StatelessWidget {
         // Here we return our UI:
         builder: (context, model, child) => isAndroid ? InkWell(
           child: RaisedButton(
+            color: Colors.blue,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18.0),
             ),
@@ -55,6 +56,7 @@ class StartupButtonView extends StatelessWidget {
           ),
         )
         : RaisedButton(
+          color: Colors.blue,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18.0),
           ),
