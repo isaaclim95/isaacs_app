@@ -9,14 +9,13 @@ import 'package:isaacs_app/constants/globals.dart' as globals;
 
 class LoginView extends StatelessWidget {
 
+
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<LoginViewModel>.reactive(
       viewModelBuilder: () => LoginViewModel(context),
       builder: (context, model, child) => PlatformScaffold(
-        appBar: PlatformAppBar(
-          title: Text(model.title),
-        ),
         body: GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () {
@@ -27,16 +26,17 @@ class LoginView extends StatelessWidget {
             child: SingleChildScrollView(
               child: Container(
                 child: Padding(
-                  padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+                  padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
                   child: Column(children: [
+                    SizedBox(height: 35),
                     Align(
-                      alignment: Alignment.centerLeft,
+                      alignment: Alignment.center,
                       child: Text(
                         "Log In",
-                        style: TextStyle(fontSize: 35),
+                        style: TextStyle(fontSize: 28),
                       ),
                     ),
-                    SizedBox(height: 60),
+                    SizedBox(height: 40),
                     Align(
                         alignment: Alignment.centerLeft,
                         child: Padding(
@@ -67,6 +67,7 @@ class LoginView extends StatelessWidget {
                                 onPressed: () => model.obscure()),
                           ),
                     ),
+                    SizedBox(height: 5),
                     Align(
                         alignment: Alignment.centerLeft,
                         child: Padding(
@@ -100,14 +101,14 @@ class LoginView extends StatelessWidget {
                           ),
                     ),
                     SizedBox(
-                      width: 150,
+                      width: 90,
                       child: Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
+                        padding: const EdgeInsets.only(bottom: 0.0),
                         child: PlatformButton(
+                          color: Colors.blue[700],
                           padding: EdgeInsets.all(0.0),
-                          color: Colors.grey[100],
                           child: Text("Login",
-                              style: TextStyle(color: Colors.blue)),
+                              style: TextStyle(color: Colors.white)),
                           onPressed: () {
                             model.login();
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -116,14 +117,14 @@ class LoginView extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 150,
+                      width: 90,
                       child: Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
+                        padding: const EdgeInsets.only(bottom: 0.0),
                         child: PlatformButton(
+                          color: Colors.blue[700],
                           padding: EdgeInsets.all(0.0),
-                          color: Colors.grey[100],
                           child: Text("Register",
-                              style: TextStyle(color: Colors.blue)),
+                              style: TextStyle(color: Colors.white)),
                           onPressed: () => model.goToRegisterView(),
                         ),
                       ),

@@ -2,7 +2,7 @@ import 'package:injectable/injectable.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import 'authentication_service.dart';
-import 'email_service.dart';
+import 'firebase_service.dart';
 
 @module
 abstract class ThirdPartyServicesModule  {
@@ -13,5 +13,5 @@ abstract class ThirdPartyServicesModule  {
   AuthService get authService;
 
   @lazySingleton
-  EmailService get emailService;
+  FirebaseService get firebaseService;
 }
