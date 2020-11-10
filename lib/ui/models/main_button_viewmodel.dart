@@ -5,7 +5,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 /// StartupButtonViewModel is the model which StartupButtonView is based on.
 /// We create this class to separate the logic and UI components of our Button.
-class StartupButtonViewModel extends BaseViewModel {
+class MainButtonViewModel extends BaseViewModel {
 
   // This is the instance of NavigationService for which we only have one
   // due to the locator instance.
@@ -20,7 +20,7 @@ class StartupButtonViewModel extends BaseViewModel {
   String get title => _title;
 
   // Constructor that allows us to pass the title in
-  StartupButtonViewModel(this._title, this._routeName)  {
+  MainButtonViewModel(this._title, this._routeName)  {
     _title = this._title;
   }
 

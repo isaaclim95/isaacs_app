@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:isaacs_app/app/router.gr.dart';
-import 'package:isaacs_app/ui/widgets/startup_buttonview.dart';
+import 'package:isaacs_app/ui/widgets/main_buttonview.dart';
 import 'package:stacked/stacked.dart';
 import '../../models/home_viewmodel.dart';
 
@@ -84,8 +84,8 @@ class HomeView extends StatelessWidget {
                 children: [
                   // Grid of 4 StartupButtonView's. We pass in the title of the Page
                   // and the route
-                  StartupButtonView('Activities', Routes.activitiesViewRoute),
-                  StartupButtonView('Settings', Routes.settingsViewRoute),
+                  MainButtonView('Activities', Routes.activitiesViewRoute),
+                  MainButtonView('Settings', Routes.settingsViewRoute),
                 ],
               ),
             )

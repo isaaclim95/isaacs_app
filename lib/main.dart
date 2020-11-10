@@ -16,11 +16,9 @@ final materialThemeData = ThemeData(
     appBarTheme: AppBarTheme(
         color: Colors.orange,
         elevation: 0,
-
-        // shadowColor: Colors.transparent,
         iconTheme: IconThemeData(color: Colors.black,)
     ),
-    primaryColor: Colors.white,
+    primaryColor: Colors.blue,
     canvasColor: Colors.white);
 final cupertinoTheme = CupertinoThemeData(
 
