@@ -14,6 +14,7 @@ import '../ui/views/activities/activities_view.dart';
 import '../ui/views/activities/dynamic_list_view.dart';
 import '../ui/views/activities/email_example_view.dart';
 import '../ui/views/activities/sharing_view.dart';
+import '../ui/views/activities/streams_example2_view.dart';
 import '../ui/views/activities/streams_example_view.dart';
 import '../ui/views/authentication/login_view.dart';
 import '../ui/views/authentication/register_view.dart';
@@ -27,6 +28,7 @@ class Routes {
   static const String activitiesViewRoute = '/activities-view';
   static const String settingsViewRoute = '/settings-view';
   static const String streamsExampleViewRoute = '/streams-example-view';
+  static const String streamsExample2ViewRoute = '/streams-example2-view';
   static const String dynamicListViewRoute = '/dynamic-list-view';
   static const String loginViewRoute = '/login-view';
   static const String sharingViewRoute = '/sharing-view';
@@ -39,6 +41,7 @@ class Routes {
     activitiesViewRoute,
     settingsViewRoute,
     streamsExampleViewRoute,
+    streamsExample2ViewRoute,
     dynamicListViewRoute,
     loginViewRoute,
     sharingViewRoute,
@@ -57,6 +60,7 @@ class Router extends RouterBase {
     RouteDef(Routes.activitiesViewRoute, page: ActivitiesView),
     RouteDef(Routes.settingsViewRoute, page: SettingsView),
     RouteDef(Routes.streamsExampleViewRoute, page: StreamsExampleView),
+    RouteDef(Routes.streamsExample2ViewRoute, page: StreamsExample2View),
     RouteDef(Routes.dynamicListViewRoute, page: DynamicListView),
     RouteDef(Routes.loginViewRoute, page: LoginView),
     RouteDef(Routes.sharingViewRoute, page: SharingView),
@@ -94,6 +98,12 @@ class Router extends RouterBase {
     StreamsExampleView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => StreamsExampleView(),
+        settings: data,
+      );
+    },
+    StreamsExample2View: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => StreamsExample2View(),
         settings: data,
       );
     },

@@ -3,6 +3,7 @@ import 'package:isaacs_app/ui/views/activities/activities_view.dart';
 import 'package:isaacs_app/ui/views/activities/email_example_view.dart';
 import 'package:isaacs_app/ui/views/activities/sharing_view.dart';
 import 'package:isaacs_app/ui/views/activities/streams_example_view.dart';
+import 'package:isaacs_app/ui/views/activities/streams_example2_view.dart';
 import 'package:isaacs_app/ui/views/authentication/login_view.dart';
 import 'package:isaacs_app/ui/views/authentication/register_view.dart';
 import 'package:isaacs_app/ui/views/home/home_view.dart';
@@ -23,6 +24,7 @@ import 'package:isaacs_app/ui/views/startup/startup_view.dart';
     MaterialRoute(page: ActivitiesView, name:'activitiesViewRoute'),
     MaterialRoute(page: SettingsView, name: 'settingsViewRoute'),
     MaterialRoute(page: StreamsExampleView, name: 'streamsExampleViewRoute'),
+    MaterialRoute(page: StreamsExample2View, name: 'streamsExample2ViewRoute'),
     MaterialRoute(page: DynamicListView, name: 'dynamicListViewRoute'),
     MaterialRoute(page: LoginView, name: 'loginViewRoute'),
     MaterialRoute(page: SharingView, name: 'sharingViewRoute'),
