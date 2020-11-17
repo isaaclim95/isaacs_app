@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isaacs_app/app/router.gr.dart';
+import 'package:isaacs_app/ui/widgets/home_view_drawer_view.dart';
 import 'package:isaacs_app/ui/widgets/main_buttonview.dart';
 import 'package:stacked/stacked.dart';
 
@@ -16,69 +17,10 @@ class HomeView extends StatelessWidget {
     return ViewModelBuilder<HomeViewModel>.reactive(
       builder: (context, model, child) => Scaffold(
         key: _scaffoldKey,
-        drawer: Drawer(
-          child: Column(
-            children: [
-              Expanded(
-                  child: ListView(
-                children: [
-                  DrawerHeader(
-                    child: Text('Isaac\'s App'),
-                    decoration: BoxDecoration(
-                      color: Colors.blue,
-                    ),
-                  ),
-                  ListTile(
-                    title: Text('Item 1'),
-                    onTap: () {
-                      // Update the state of the app.
-                      // ...
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Item 2'),
-                    onTap: () {
-                      // Update the state of the app.
-                      // ...
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Item 3'),
-                    onTap: () {
-                      // Update the state of the app.
-                      // ...
-                    },
-                  ),
-                ],
-              )),
-              Container(
-                  // This align moves the children to the bottom
-                  child: Align(
-                      alignment: FractionalOffset.bottomCenter,
-                      child: Container(
-                          child: Column(
-                        children: <Widget>[
-                          Divider(),
-                          GestureDetector(
-                            onTap: () {
-                              model.onSettingsTap(context);
-                            },
-                            child: ListTile(
-                                leading: Icon(Icons.settings),
-                                title: Text('Settings')),
-                          ),
-                          ListTile(
-                              leading: Icon(Icons.help),
-                              title: Text('Help and Feedback'))
-                        ],
-                      ))))
-            ],
-          ),
-        ),
         appBar: AppBar(
-          // leading: Icon(Icons.menu),
           elevation: 0,
         ),
+        drawer: HomeViewDrawerView(),
         body: Column(
           children: [
             Stack(children: [
