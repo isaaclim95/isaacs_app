@@ -4,42 +4,40 @@ import 'package:isaacs_app/ui/models/activities/sharing_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
 class SharingView extends StatelessWidget {
-
   SharingView({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<SharingViewModel>.nonReactive(
-        builder: (context, model, child) =>
-          PlatformScaffold(
-            appBar: PlatformAppBar(
-              title: Text("Share example"),
-            ),
-            body: Container(
-              child: Center(
-                child: Column(
-                  children: [
-                    Flexible(
-                      child: FractionallySizedBox(
-                        widthFactor: 0.5,
-                        heightFactor: 0.5,
-                        child: PlatformTextField(
-                          controller: model.sharingController,
+        builder: (context, model, child) => PlatformScaffold(
+              appBar: PlatformAppBar(
+                title: Text("Share example"),
+              ),
+              body: Container(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Flexible(
+                        child: FractionallySizedBox(
+                          widthFactor: 0.5,
+                          heightFactor: 0.5,
+                          child: PlatformTextField(
+                            controller: model.sharingController,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(height: 30),
-                    PlatformButton(
-                      child: Text("Share"),
-                      onPressed: () {
-                        model.share(model.sharingController.text);
-                      },
-                    ),
-                  ],
+                      SizedBox(height: 30),
+                      PlatformButton(
+                        child: Text("Share"),
+                        onPressed: () {
+                          model.share();
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
         viewModelBuilder: () => SharingViewModel());
   }
 }
