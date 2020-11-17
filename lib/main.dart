@@ -1,54 +1,31 @@
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart' hide Router;
+import 'package:flutter/material.dart' hide Router;
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+import 'package:isaacs_app/constants/globals.dart' as globals;
 import 'package:stacked_services/stacked_services.dart';
+
 import 'app/locator.dart';
 import 'app/router.gr.dart';
-import 'package:flutter/material.dart' hide Router;
-import 'dart:io';
-import 'package:isaacs_app/constants/globals.dart' as globals;
 
-
-
-final materialThemeData = ThemeData(
-    primarySwatch: Colors.orange,
-    scaffoldBackgroundColor: Colors.white,
-    appBarTheme: AppBarTheme(
-        color: Colors.orange,
-        elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black,)
-    ),
-    primaryColor: Colors.blue,
-    canvasColor: Colors.white);
-final cupertinoTheme = CupertinoThemeData(
-
-    primaryContrastingColor: Colors.white,
-    // textTheme: CupertinoTextThemeData(
-    //   primaryColor: Colors.white,
-    //       textStyle: TextStyle(color: Colors.white)
-    // ),
-    primaryColor: Colors.blue,
-    barBackgroundColor: Colors.orange,
-
-    scaffoldBackgroundColor: Colors.white);
-
+final materialThemeData = ThemeData(primaryColor: Colors.blue);
+final cupertinoTheme = CupertinoThemeData(primaryColor: Colors.blue);
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   setupLocator();
   runApp(MyApp());
-
 }
 
-class MyApp extends StatefulWidget  {
+class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
-
   String uid;
   bool isOnline;
 
@@ -56,12 +33,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   void initState() {
     super.initState();
 
-
     if (Platform.isAndroid) {
       globals.isAndroid = true;
     } else if (Platform.isIOS) {
       globals.isAndroid = false;
-    } else  {
+    } else {
       throw "ERROR WITH PLATFORM";
     }
     // isOnline = true;
@@ -114,9 +90,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
       // Allows us to use context-less navigation
       navigatorKey: locator<NavigationService>().navigatorKey,
-
     );
   }
-
-
 }
