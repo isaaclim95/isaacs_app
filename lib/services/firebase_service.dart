@@ -1,26 +1,40 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:isaacs_app/app/locator.dart';
 import 'package:isaacs_app/ui/models/user_model.dart';
+
 import 'authentication_service.dart';
 
 /// [FirebaseService] Handles all the updating, deleting etc. of documents and collections
 ///
 /// Declare an instance as: final FirebaseService _firebaseService = locator<FirebaseService>();
 class FirebaseService {
-
   final AuthService _authService = locator<AuthService>();
   bool isSignedIn = false;
 
-  CollectionReference userCollection = FirebaseFirestore.instance?.collection("users");
+  CollectionReference userCollection =
+      FirebaseFirestore.instance?.collection("users");
 
+  CollectionReference convRef =
+      FirebaseFirestore.instance?.collection("conversations");
 
   FirebaseService() {
-    if (_authService.isSignedIn()){
+    if (_authService.isSignedIn()) {
       isSignedIn = true;
     }
   }
 
+  /// Goal: return a list of conversations for all the users
+  Stream<List<String>> getConvos() {
+    return convRef.snapshots().map((snapshot) =>
+        snapshot.docs.map((doc) => doc.data()['convo']).map((e) => e));
+  }
 
+  // Stream<List<String>> getConvos() {
+  //   return convRef
+  //       .snapshots()
+  //       .map((snapshot) =>
+  //       snapshot.docs.map((doc) => doc.data()['convo'][0] as String).toList());
+  // }
 
   Stream<List<UserModel>> get getUserList {
     return userCollection?.snapshots()?.map((snapshot) => snapshot.docs
@@ -30,12 +44,18 @@ class FirebaseService {
 
   Future<bool> register(email, password) async {
     try {
-
       await _authService.createUserWithEmailAndPassword(email, password);
       print('Created new user with id: ' + _authService.uid);
 
       Map<String, dynamic> dict = {};
-      dict.addAll({'id' : _authService.uid, 'name' : 'isaac', 'age' : 15, 'weight' : 50, 'height' : 179, 'isOnline' : true});
+      dict.addAll({
+        'id': _authService.uid,
+        'name': 'isaac',
+        'age': 15,
+        'weight': 50,
+        'height': 179,
+        'isOnline': true
+      });
       addField(userCollection, dict);
 
       await userCollection.doc(_authService.uid).set(dict);
@@ -48,7 +68,8 @@ class FirebaseService {
   }
 
   /// Given a [CollectionReference] and Map of data, set the field in at the reference path
-  Future<bool> addField(CollectionReference documentRef, Map<String, dynamic> data) async {
+  Future<bool> addField(
+      CollectionReference documentRef, Map<String, dynamic> data) async {
     try {
       await userCollection.doc(_authService.uid).set(data);
       print("added field: " + data.toString());
@@ -60,8 +81,6 @@ class FirebaseService {
   }
 
   Future<void> updateStatus(isOnline) async {
-    userCollection?.doc(_authService.uid)?.update({"isOnline":isOnline});
+    userCollection?.doc(_authService.uid)?.update({"isOnline": isOnline});
   }
-
-
 }

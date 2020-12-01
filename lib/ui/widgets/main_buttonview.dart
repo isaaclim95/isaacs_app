@@ -1,8 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:isaacs_app/ui/models/main_button_viewmodel.dart';
 import 'package:stacked/stacked.dart';
-import 'dart:io';
 
 /// StartupButtonView builds and provides the UI for a Button that
 /// navigates to a specified view
@@ -43,7 +44,6 @@ class MainButtonView extends StatelessWidget {
         builder: (context, model, child) => isAndroid
             ? InkWell(
                 child: RaisedButton(
-                  color: Colors.blue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                   ),
@@ -57,7 +57,6 @@ class MainButtonView extends StatelessWidget {
                 ),
               )
             : RaisedButton(
-                color: Colors.blue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18.0),
                 ),
