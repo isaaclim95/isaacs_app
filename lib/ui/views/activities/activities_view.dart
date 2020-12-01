@@ -9,23 +9,24 @@ class ActivitiesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder.nonReactive(
-        viewModelBuilder: () => ActivitiesViewModel(),
-        builder: (context, model, child) =>
-          PlatformScaffold(
-            appBar: PlatformAppBar(
-              title: Text("Activities")
-            ),
-            body: ListView(
-              children: [
-                /// New activities go here
-                ActivitiesListTileView('Streams example', Routes.streamsExampleViewRoute),
-                ActivitiesListTileView('Dynamic list example', Routes.dynamicListViewRoute),
-                ActivitiesListTileView('Share example', Routes.sharingViewRoute),
-                ActivitiesListTileView('Send email example', Routes.emailExampleViewRoute),
-              ],
-            ),
-
-          ),
+      viewModelBuilder: () => ActivitiesViewModel(),
+      builder: (context, model, child) => PlatformScaffold(
+        appBar: PlatformAppBar(title: Text("Activities")),
+        body: ListView(
+          children: [
+            /// New activities go here
+            ActivitiesListTileView(
+                'Streams example', Routes.streamsExampleViewRoute),
+            ActivitiesListTileView(
+                'Dynamic list example', Routes.dynamicListViewRoute),
+            ActivitiesListTileView('Share example', Routes.sharingViewRoute),
+            ActivitiesListTileView(
+                'Send email example', Routes.emailExampleViewRoute),
+            ActivitiesListTileView(
+                'Storage example', Routes.storageExampleViewRoute),
+          ],
+        ),
+      ),
     );
   }
 }

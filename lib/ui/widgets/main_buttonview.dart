@@ -48,7 +48,7 @@ class MainButtonView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(18.0),
                   ),
                   child: Align(
-                      alignment: Alignment.bottomLeft,
+                      alignment: Alignment(-1, 0.7),
                       child: Text(model.title)),
 
                   // Here we declare what the `button will do when it is pressed.

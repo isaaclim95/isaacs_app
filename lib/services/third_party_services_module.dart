@@ -4,9 +4,10 @@ import 'package:stacked_services/stacked_services.dart';
 import 'authentication_service.dart';
 import 'email_service.dart';
 import 'firebase_service.dart';
+import 'storage_service.dart';
 
 @module
-abstract class ThirdPartyServicesModule  {
+abstract class ThirdPartyServicesModule {
   @lazySingleton
   NavigationService get navigationService;
 
@@ -18,4 +19,7 @@ abstract class ThirdPartyServicesModule  {
 
   @lazySingleton
   EmailService get emailService;
+
+  @lazySingleton
+  StorageService get storageService;
 }

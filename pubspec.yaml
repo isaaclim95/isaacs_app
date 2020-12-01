@@ -30,6 +30,9 @@ dependencies:
   flutter_platform_widgets:
   share: ^0.6.5+4
   mailer: ^3.2.1
+  firebase_storage:
+  video_player:
+  webview_flutter:
 
 dev_dependencies:
   flutter_test:

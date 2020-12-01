@@ -11,6 +11,7 @@ import 'package:stacked_services/stacked_services.dart';
 import '../services/authentication_service.dart';
 import '../services/email_service.dart';
 import '../services/firebase_service.dart';
+import '../services/storage_service.dart';
 import '../services/third_party_services_module.dart';
 
 /// adds generated dependencies
@@ -29,6 +30,8 @@ GetIt $initGetIt(
       () => thirdPartyServicesModule.firebaseService);
   gh.lazySingleton<NavigationService>(
       () => thirdPartyServicesModule.navigationService);
+  gh.lazySingleton<StorageService>(
+      () => thirdPartyServicesModule.storageService);
   return get;
 }
 
@@ -41,4 +44,6 @@ class _$ThirdPartyServicesModule extends ThirdPartyServicesModule {
   FirebaseService get firebaseService => FirebaseService();
   @override
   NavigationService get navigationService => NavigationService();
+  @override
+  StorageService get storageService => StorageService();
 }
