@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 
 class EmailService {
   String key =
-      "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";
+      "sengrid key goes here"
 
   /// Uses the SendGrid api to send an email with subject and body
   Future<bool> sendEmail(
@@ -17,7 +17,7 @@ class EmailService {
             "{\n          \"personalizations\": [\n            {\n              "
             "\"to\": [\n                {\n                  "
             "\"email\": \"$to\"\n                },\n                {\n                  "
-            "\"email\": \"info@paraspace.com.au\"\n                }\n              ]\n            }\n          ],\n          "
+            "\"email\": \"emailgoeshere\"\n                }\n              ]\n            }\n          ],\n          "
             "\"from\": {\n            \"email\": \"$from\"\n          },\n          "
             "\"subject\": \"$subject\",\n          "
             "\"content\": [\n            {\n              "

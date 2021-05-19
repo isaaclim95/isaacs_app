@@ -33,6 +33,8 @@ dependencies:
   firebase_storage:
   video_player:
   webview_flutter:
+  cronparse: ^0.1.1
+  cron_parser:
 
 dev_dependencies:
   flutter_test:

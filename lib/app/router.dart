@@ -3,11 +3,11 @@ import 'package:isaacs_app/ui/views/activities/activities_view.dart';
 import 'package:isaacs_app/ui/views/activities/dynamic_list_view.dart';
 import 'package:isaacs_app/ui/views/activities/email_example_view.dart';
 import 'package:isaacs_app/ui/views/activities/sharing_view.dart';
-import 'package:isaacs_app/ui/views/activities/storage_example.dart';
 import 'package:isaacs_app/ui/views/activities/streams_example_view.dart';
 import 'package:isaacs_app/ui/views/authentication/login_view.dart';
 import 'package:isaacs_app/ui/views/authentication/register_view.dart';
 import 'package:isaacs_app/ui/views/home/home_view.dart';
+import 'package:isaacs_app/ui/views/home/homeion/register_view.dart';
 import 'package:isaacs_app/ui/views/settings/settings_view.dart';
 import 'package:isaacs_app/ui/views/startup/startup_view.dart';
 

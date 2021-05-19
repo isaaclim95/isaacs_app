@@ -33,6 +33,12 @@ class SharingView extends StatelessWidget {
                           model.share();
                         },
                       ),
+                      PlatformButton(
+                        child: Text("Test"),
+                        onPressed: () {
+                          model.test();
+                        },
+                      ),
                     ],
                   ),
                 ),
